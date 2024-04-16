@@ -1,23 +1,26 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import directus from "../lib/directus";
-import { readSingleton } from "@directus/sdk";
+import Home from "../components/Home";
+import ServicesCard from "../components/ServicesCard";
+import EmailForm from  "../components/EmailForm";
+import CardCase from "../components/CardCase";
+import Language from "../components/Language"
 
-const global = await directus.request(readSingleton("global"));
+
 ---
 
-<Layout title={global.title}>
+<Layout title={""}>
   <main>
-    <div>
-      <h1>{global.title}</h1>
-      <p>{global.description}</p>
-    </div>
+    <Language client:visible/>
+    <Home client:visible/>
+    <CardCase client:visible />
+    <ServicesCard client:visible/>
+    <EmailForm client:visible/>
   </main>
 </Layout>
 
 <style>
   main {
-    color :white;
+    color: white;
   }
 </style>
-
