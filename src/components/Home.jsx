@@ -5,7 +5,6 @@ import directus from "../lib/directus";
 
 export default function Home() {
 	const $defaultLanguage = useStore(defaultLanguage)
-	console.log($defaultLanguage)
 	return (
 		<div>
 			<p>{$defaultLanguage}</p>
