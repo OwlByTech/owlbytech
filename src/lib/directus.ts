@@ -1,8 +1,6 @@
 import { createDirectus, rest, } from '@directus/sdk';
-import dotenv from 'dotenv';
 
-dotenv.config();
-const directusUrl = process.env.DIRECTUS_URL;
+const directusUrl = "https://cms.owlbytech.com"
 
 if (!directusUrl) {
   throw new Error('La variable de entorno DIRECTUS_URL no está definida');
