@@ -9,15 +9,15 @@ export default function Home() {
 		<div>
 			<p>{$defaultLanguage}</p>
 			{home.filter(data => data.languages_code === $defaultLanguage).map(data => (
-					<div>
-						<span>{data.header_title}</span>
-						<img src={`${directus.url}assets/${data.header_logo}?width=80`} alt="" />
-						<h1>{data.home_maintext}</h1>
-						<p>{data.home_subtext}
-						</p>
-						
-					</div>
-				))
+				<div>
+					<span>{data.header_title}</span>
+					<img src={`${directus.url}assets/${data.header_logo}?width=80`} alt="" />
+					<h1>{data.home_maintext}</h1>
+					<p>{data.home_subtext}
+					</p>
+
+				</div>
+			))
 			}
 		</div>
 	)
