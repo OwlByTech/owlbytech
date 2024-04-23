@@ -14,8 +14,8 @@ export default function Language() {
 
     return (
         <div>
-            <button onClick={handleLanguageChange}>
-                {currentLanguage === "es-ES" ? "Switch to en-US" : "Cambiar a es-ES"}
+            <button onClick={handleLanguageChange} className="text-text px-3">
+                {currentLanguage === "es-ES" ? "EN" : "ES"}
             </button>
             {currentLanguage}
         </div>

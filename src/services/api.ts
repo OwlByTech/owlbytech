@@ -4,11 +4,14 @@ import { type CaseCard } from "../types/CaseCard";
 import { type HomeData } from "../types/Home"
 import type { ServicesData } from "../types/Services";
 import type { EmailData } from "../types/EmailData";
+import type { Navbar } from "../types/Navbar";
 
 export const casecards = await directus.request<CaseCard[]>(() => ({
     path: "/items/case_card_translations",
     method: "GET",
   }));
+
+export const navbar = await directus.request<Navbar[]>(readSingleton("navbar_translations")) 
 
 export const home = await directus.request<HomeData[]>(readSingleton("home_translations"))
 
@@ -19,3 +22,4 @@ export const services = await directus.request<ServicesData[]>(() => ({
 }));
 
 export const emailForm = await directus.request<EmailData[]>(readSingleton("email_form_translations"))
+

@@ -5,13 +5,14 @@ import ServicesCard from "../components/ServicesCard";
 import EmailForm from  "../components/EmailForm";
 import CardCase from "../components/CardCase";
 import Language from "../components/Language"
+import Navbar from "../components/Navbar";
 
 
 ---
 
 <Layout title={""}>
   <main>
-    <Language client:visible/>
+    <Navbar client:visible />
     <Home client:visible/>
     <CardCase client:visible />
     <ServicesCard client:visible/>

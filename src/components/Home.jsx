@@ -1,25 +1,45 @@
-import { defaultLanguage } from "../services/LanguageStore";
+import React, { useRef, useEffect } from "react";
+import TagCloud from "TagCloud";
 import { useStore } from "@nanostores/react";
+import { defaultLanguage } from "../services/LanguageStore";
 import { home } from "../services/api";
-import directus from "../lib/directus";
+const Home = () => {
+  const $defaultLanguage = useStore(defaultLanguage);
+  const homeData = home.find(data => data.languages_code === $defaultLanguage);
+  const sphereRef = useRef(null);
 
-export default function Home() {
-	const $defaultLanguage = useStore(defaultLanguage)
-	return (
-		<div>
-			<p>{$defaultLanguage}</p>
-			{home.filter(data => data.languages_code === $defaultLanguage).map(data => (
-				<div>
-					<span>{data.header_title}</span>
-					<img src={`${directus.url}assets/${data.header_logo}?width=80`} alt="" />
-					<h1>{data.home_maintext}</h1>
-					<p>{data.home_subtext}
-					</p>
+  useEffect(() => {
+    if (!homeData) return; 
+    const myTags = homeData.home_words; 
+    TagCloud(sphereRef.current, myTags, {
+      radius: 400,
+      maxSpeed: 'fast',
+      initSpeed: 'fast',
+      direction: 100,
+      keep: true,
+    });
+  }, []);
 
-				</div>
-			))
-			}
-		</div>
-	)
-
+  return (
+    <div className="container mx-auto">
+      {homeData && (
+        <div>
+          <div className="relative">
+            <section className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center">
+              <h1 className="text-text text-4xl font-bold">{homeData.home_maintext}</h1>
+              <p className="text-text">{homeData.home_subtext}</p>
+            </section>
+            <section className="text-center text-text">
+              <div className="inline-block">
+                <span className="sphere" ref={sphereRef}></span>
+              </div>
+            </section>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
+
+
+export default Home;
