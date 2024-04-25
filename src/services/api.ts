@@ -15,6 +15,7 @@ export const navbar = await directus.request<Navbar[]>(readSingleton("navbar_tra
 
 export const home = await directus.request<HomeData[]>(readSingleton("home_translations"))
 
+export const main = await directus.request<Global[]>(readSingleton("global_translations"))
 
 export const services = await directus.request<ServicesData[]>(() => ({
   path: "/items/services_translations",

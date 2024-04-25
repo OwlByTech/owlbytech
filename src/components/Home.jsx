@@ -13,7 +13,7 @@ const Home = () => {
     const myTags = homeData.home_words; 
     TagCloud(sphereRef.current, myTags, {
       radius: 400,
-      maxSpeed: 'fast',
+      maxSpeed: 'slow',
       initSpeed: 'fast',
       direction: 100,
       keep: true,
