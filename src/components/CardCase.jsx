@@ -11,15 +11,15 @@ export default function CardCase() {
     const filteredCaseCards = casecards.filter(data => data.languages_code === $defaultLanguage);
 
     return (
-        <div className="px-4 py-4">
-            <h1 className="text-text font-bold px-4 text-6xl">
+        <div className="p-10 ml-12 mb-10">
+            <h1 className="text-text font-bold text-6xl">
             {item.case_title}
             </h1>
-            <p className="text-text px-4 text-2xl">{item.case_subtitle}</p>
-            <div className="grid px-10 py-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+            <p className="text-text mb-10 text-3xl">{item.case_subtitle}</p>
+            <div className="grid py-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
                 {filteredCaseCards.map(data => (
                     <div key={data.id} className="max-w-xs rounded-xl overflow-hidden shadow-lg border border-gray-800">  
-                        <div className="p-4">
+                        <div className="p-6">
                             <img className="w-16 h-16 float-left mr-6 rounded-xl border border-gray-800" src={`${directus.url}assets/${data.image}?width=80`} alt="" />
                             <div className="">
                                 <h1 className="text-text font-bold text-3xl mb-5 mt-5">{data.title}</h1>
