@@ -2,7 +2,7 @@ import { useStore } from "@nanostores/react";
 import { defaultLanguage } from "../services/LanguageStore";
 import { emailForm } from "../services/api";
 
-export default function EmailFrom() {
+export default function ContactForm() {
     const $defaultLanguage = useStore(defaultLanguage);
     return (
         <div className="">
