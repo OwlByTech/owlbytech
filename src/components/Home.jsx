@@ -3,22 +3,29 @@ import TagCloud from "TagCloud";
 import { useStore } from "@nanostores/react";
 import { defaultLanguage } from "../services/LanguageStore";
 import { home } from "../services/api";
+
 const Home = () => {
   const $defaultLanguage = useStore(defaultLanguage);
   const homeData = home.find(data => data.languages_code === $defaultLanguage);
   const sphereRef = useRef(null);
+  const tagCloudRef = useRef(null);
 
   useEffect(() => {
-    if (!homeData) return; 
-    const myTags = homeData.home_words; 
-    TagCloud(sphereRef.current, myTags, {
+    if (!homeData) return;
+    const myTags = homeData.home_words;
+    if (tagCloudRef.current) {
+      tagCloudRef.current.destroy(); 
+    }
+    const tagCloudInstance = TagCloud(sphereRef.current, myTags, {
       radius: 400,
-      maxSpeed: 'slow',
-      initSpeed: 'fast',
+      maxSpeed: "slow",
+      initSpeed: "fast",
       direction: 100,
       keep: true,
     });
-  }, []);
+
+    tagCloudRef.current = tagCloudInstance;
+  }, [$defaultLanguage]);
 
   return (
     <div className="container mx-auto">
@@ -39,7 +46,6 @@ const Home = () => {
       )}
     </div>
   );
-}
-
+};
 
 export default Home;
