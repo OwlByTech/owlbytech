@@ -6,6 +6,9 @@ import Submit from "./core/Submit";
 import TextArea from "./core/TextArea";
 import type { ContactFormFieldTranslation } from "../types/ContactFormFieldTranslation";
 import type { ContactFormField } from "../types/ContactFormField";
+import EmailInput from "./core/EmailInput";
+import FileInput from "./core/FileInput";
+import Checkbox from "./core/Checkbox";
 
 type FormFieldTranslation = ContactFormFieldTranslation & ContactFormField;
 
@@ -51,7 +54,13 @@ export default function ContactForm() {
                             case 'submit':
                                 return <Submit key={index} value={data.label} />
                             case 'text-area':
-                                return <TextArea placeholder={data.placeholder} />
+                                return <TextArea key={index} name={data.name} placeholder={data.placeholder} />
+                            case 'email-input':
+                                return <EmailInput name={data.name} placeholder={data.placeholder}/>
+                            case 'file-input':
+                                return <FileInput/>
+                            case 'checkbox':
+                                return <Checkbox name={data.name} value={data.placeholder}/>
                         }
 
                         return (
