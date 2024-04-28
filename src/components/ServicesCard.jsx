@@ -8,14 +8,10 @@ export default function ServicesCard() {
   const mainData = main.filter(item => item.languages_code === $defaultLanguage);
   const item = mainData[0]
   const filteredServices = services.filter(data => data.languages_id === $defaultLanguage);
-  const itemHeight = 270; 
-  const containerHeight = filteredServices.length * itemHeight; 
 
   return (
     <div className="p-10 ml-12"
-      style={{
-        height: `${containerHeight}px`
-      }}
+      style={{ minHeight: "400px", marginBottom: "300px" }}
     >
       <h1 className="text-text font-bold px-4 text-6xl">{item.services_title}</h1>
       <p className="text-text px-4 mb-10 text-3xl">{item.services_subtitle}</p>
