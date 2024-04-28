@@ -24,12 +24,14 @@ export default function Footer() {
 
     return (
         <div className="">
+            <hr className="mb-5 border-b-1 border-black w-5/6 mx-auto" />
             {aboutUs.map(data => (
-                <div>
+                <div className="flex justify-center items-center">
                     <p className="text-text">{data.name}</p>
                     <p className="text-text">{data.link}</p>
                 </div>
             ))}
+            <hr className="mb-5 border-b-1 border-black w-5/6 mx-auto" />
         </div>
     );
 
