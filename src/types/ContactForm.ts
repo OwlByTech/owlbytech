@@ -1,4 +1,4 @@
-export type EmailData = {
+export type ContactFormData = {
     id: number,
     email_form_id :number,
     languages_code: string,

@@ -3,12 +3,13 @@ import directus from "../lib/directus";
 import { type CaseCard } from "../types/CaseCard";
 import { type HomeData } from "../types/Home"
 import type { ServicesData } from "../types/Services";
-import type { EmailData } from "../types/EmailData";
+import type { ContactFormData } from "../types/ContactForm";
 import type { Navbar } from "../types/Navbar";
 import type { TechnologyData } from "../types/Technology";
 import type { SocialMediaData } from "../types/SocialMedia";
 import type { PolicyData } from "../types/PolicyData";
 import type { AboutUsData } from "../types/AboutUs";
+import type { ContactFormField } from "../types/ContactFormField";
 
 export const casecards = await directus.request<CaseCard[]>(() => ({
     path: "/items/case_card_translations",
@@ -26,7 +27,8 @@ export const services = await directus.request<ServicesData[]>(() => ({
   method: "GET",
 }));
 
-export const emailForm: EmailData[] = await directus.request<EmailData[]>(readSingleton("email_form_translations"))
+export const contactFormField = await directus.request<ContactFormField[]>(readSingleton("contact_form_field_translations"));
+export const contactForm = await directus.request<ContactFormData[]>(readSingleton("contact_form_translations"));
 export const technologies = await directus.request<TechnologyData[]>(readSingleton("technologies"));
 export const socialMedia = await directus.request<SocialMediaData[]>(readSingleton("social_media"));
 export const policies = await directus.request<PolicyData[]>(readSingleton("policies"));
