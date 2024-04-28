@@ -1,10 +1,10 @@
-export type ContactStep1SVGProps = {
+export type ContactStep1To3SVGProps = {
     step1: string;
     step2: string;
     step3: string;
     mobile?: boolean;
 }
-export default function ContactStep1To3SVG(props: ContactStep1SVGProps) {
+export default function ContactStep1To3SVG(props: ContactStep1To3SVGProps) {
     return (
         <>
 
