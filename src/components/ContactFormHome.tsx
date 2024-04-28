@@ -1,6 +1,7 @@
 import ContactStep1To3SVG from "../assets/contact/ContactStep1To3SVG";
 import ContactStep4To5SVG from "../assets/contact/ContactStep4To5SVG";
 import ContactForm from "./ContactForm";
+import OurTeam from "./OurTeam";
 
 export default function ContactFormHome() {
     return (
@@ -15,6 +16,7 @@ export default function ContactFormHome() {
                 step4="Our team work hard to make to develop your idea"
                 step5="Send the form"
             />
+            <OurTeam />
         </div>
     );
 }
