@@ -12,7 +12,7 @@ export default function ServicesCard() {
   return (
     <div className="p-10 ml-12"
       style={{
-        height: `${filteredServices.length * 200}px`
+        height: `${filteredServices.length * 270}px`
       }}
     >
       <h1 className="text-text font-bold px-4 text-6xl">{item.services_title}</h1>
