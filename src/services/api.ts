@@ -12,6 +12,7 @@ import type { AboutUsData } from "../types/AboutUs";
 import type { ContactFormField } from "../types/ContactFormField";
 import type { ContactFormFieldTranslation } from "../types/ContactFormFieldTranslation";
 import type { WorkerData } from "../types/Worker";
+import type { ContactFormHomeData } from "../types/ContactFormHome";
 
 export const casecards = await directus.request<CaseCard[]>(() => ({
     path: "/items/case_card_translations",
@@ -31,6 +32,7 @@ export const services = await directus.request<ServicesData[]>(() => ({
 
 export const contactFormFieldTranslation = await directus.request<ContactFormFieldTranslation[]>(readSingleton("contact_form_field_translations"));
 export const contactFormField = await directus.request<ContactFormField[]>(readSingleton("contact_form_field"));
+export const contactFormHome = await directus.request<ContactFormHomeData[]>(readSingleton("contact_form_home_translations"));
 export const contactForm = await directus.request<ContactFormData[]>(readSingleton("contact_form_translations"));
 export const technologies = await directus.request<TechnologyData[]>(readSingleton("technologies"));
 export const socialMedia = await directus.request<SocialMediaData[]>(readSingleton("social_media"));
