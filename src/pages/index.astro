@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Home from "../components/Home";
 import ServicesCard from "../components/ServicesCard";
-import EmailForm from "../components/ContactForm";
+import ContactForm from "../components/ContactForm";
 import CardCase from "../components/CardCase";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer"
@@ -17,7 +17,7 @@ import { main } from "../services/api";
     <Home client:visible />
     <CardCase client:visible />
     <ServicesCard client:visible />
-    <EmailForm client:visible />
+    <ContactForm client:visible />
     <Footer client:visible>
   </main>
 </Layout>
