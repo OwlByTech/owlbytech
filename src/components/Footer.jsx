@@ -2,29 +2,36 @@ import { useStore } from "@nanostores/react";
 import { defaultLanguage } from "../services/LanguageStore";
 import { policies, socialMedia, technologies } from "../services/api";
 
-export default function Footer(){
+export default function Footer() {
     const $defaultLanguage = useStore(defaultLanguage);
     console.log(technologies);
     console.log(socialMedia);
     console.log(policies);
     const aboutUs = [
         {
-        name: "Open Source",
-        link: "#open-source"
-    },
-    {
-        name: "Code of Conduct",
-        link: "/code-of-conduct"
-    },
-    {
-        name: "Team",
-        link: "/about-us#team"
-    }
-];
+            name: "Open Source",
+            link: "#open-source"
+        },
+        {
+            name: "Code of Conduct",
+            link: "/code-of-conduct"
+        },
+        {
+            name: "Team",
+            link: "/about-us#team"
+        }
+    ];
 
-    return(
+    return (
         <div className="">
-            Hello World
+            <hr className="mb-5 border-b-1 border-black w-5/6 mx-auto" />
+            {aboutUs.map(data => (
+                <div className="flex justify-center items-center">
+                    <p className="text-text">{data.name}</p>
+                    <p className="text-text">{data.link}</p>
+                </div>
+            ))}
+            <hr className="mb-5 border-b-1 border-black w-5/6 mx-auto" />
         </div>
     );
 
