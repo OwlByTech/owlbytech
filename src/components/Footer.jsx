@@ -27,7 +27,7 @@ export default function Footer() {
             {aboutUs.map(data => (
                 <div>
                     <p className="text-text">{data.name}</p>
-                    <p>{data.link}</p>
+                    <p className="text-text">{data.link}</p>
                 </div>
             ))}
         </div>
