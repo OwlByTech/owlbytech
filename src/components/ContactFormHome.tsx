@@ -20,7 +20,7 @@ export default function ContactFormHome() {
                     <>
                     <div className="flex flex-col mb-32">
                         <h2 className="text-text text-9xl font-bold">{data.title}</h2>
-                        <span className="text-right text-5xl font-thin text-text">{data.phrase}</span>
+                        <span className="text-right text-5xl font-thin text-text">{data.subtitle}</span>
                     </div>
 
 
