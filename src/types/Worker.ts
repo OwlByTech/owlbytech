@@ -4,4 +4,5 @@ export interface WorkerData {
     given_name: string;
     surname: string;
     character: string;
+    github: string;
 }
