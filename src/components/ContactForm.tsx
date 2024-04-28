@@ -42,33 +42,45 @@ export default function ContactForm() {
             <form className="flex flex-col w-full gap-6">
                 {
                     contactFormFields.map((data, index) => {
-                        console.log(data.type);
+                        const required = data.required;
+                        const name = data.name;
+                        const placeholder = data.placeholder;
+                        const label = data.label;
+
                         switch (data.type) {
                             case 'text-input':
                                 return <TextInput
-                                    name={data.name}
+                                    name={name}
                                     key={index}
-                                    label={data.label}
-                                    placeholder={data.placeholder!}
+                                    label={label}
+                                    placeholder={placeholder!}
+                                    required={required}
                                 />
                             case 'submit':
-                                return <Submit key={index} value={data.label} />
+                                return <Submit
+                                    key={index}
+                                    value={label} />
                             case 'text-area':
-                                return <TextArea key={index} name={data.name} placeholder={data.placeholder} />
+                                return <TextArea
+                                    key={index}
+                                    name={name}
+                                    placeholder={placeholder}
+                                    required={required} />
                             case 'email-input':
-                                return <EmailInput name={data.name} placeholder={data.placeholder}/>
+                                return <EmailInput
+                                    name={name}
+                                    placeholder={placeholder}
+                                    required={required} />
                             case 'file-input':
-                                return <FileInput/>
+                                return <FileInput
+                                    name={name}
+                                    required={required} />
                             case 'checkbox':
-                                return <Checkbox name={data.name} value={data.placeholder}/>
+                                return <Checkbox
+                                    name={name}
+                                    value={placeholder}
+                                    required={required} />
                         }
-
-                        return (
-                            <div
-                                key={index}
-                                className=""
-                            >{data.placeholder}</div>
-                        );
                     })
                 }
             </form>

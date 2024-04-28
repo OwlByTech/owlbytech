@@ -2,6 +2,7 @@ export type TextInputProps = {
     placeholder: string;
     label?: string;
     name: string;
+    required?: boolean;
 }
 
 export default function TextInput(props: TextInputProps) {
@@ -9,6 +10,8 @@ export default function TextInput(props: TextInputProps) {
         <input
             className="p-3 border border-text rounded-md"
             name={props.name}
-            placeholder={props.placeholder} />
+            placeholder={props.placeholder}
+            required={props.required}
+        />
     );
 }

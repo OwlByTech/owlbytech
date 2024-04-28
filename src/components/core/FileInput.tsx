@@ -1,9 +1,14 @@
-export type FileInputProps= {
-
+export type FileInputProps = {
+    name: string;
+    required?: boolean;
 }
 
-export default function FileInput({}: FileInputProps){
+export default function FileInput(props: FileInputProps) {
     return (
-        <input type="file"/>
+        <input
+            name={props.name}
+            required={props.required}
+            type="file"
+        />
     );
 }
