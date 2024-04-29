@@ -1,4 +1,4 @@
-import directus from "../lib/directus";
+import { directus } from "../lib/directus";
 import { workers } from "../services/api";
 
 export default function OurTeam() {
