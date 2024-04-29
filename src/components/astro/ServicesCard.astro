@@ -1,0 +1,10 @@
+---
+import { mainFetching, servicesFetching } from "../../services/api"
+import ServicesCard from "../ServicesCard"
+
+const services = await servicesFetching();
+
+const mainData = await mainFetching();
+---
+
+<ServicesCard data={services} mainData={mainData} />

@@ -40,6 +40,13 @@ export async function mainFetching(){
   return await directus.request<GlobalData[]>(readSingleton("global_translations"))
 }
 
+export async function servicesFetching(){
+  return await directus.request<ServicesData[]>(() => ({
+    path: "/items/services_translations",
+    method: "GET",
+  }));
+}
+
 async function apiFetchAll() {
   casecards = await directus.request<CaseCard[]>(() => ({
     path: "/items/case_card_translations",
@@ -61,6 +68,8 @@ async function apiFetchAll() {
   contactFormField = await directus.request<ContactFormField[]>(readSingleton("contact_form_field"));
   contactFormHome = await directus.request<ContactFormHomeData[]>(readSingleton("contact_form_home_translations"));
   contactForm = await directus.request<ContactFormData[]>(readSingleton("contact_form_translations"));
+
+
   technologies = await directus.request<TechnologyData[]>(readSingleton("technologies"));
   socialMedia = await directus.request<SocialMediaData[]>(readSingleton("social_media"));
   policies = await directus.request<PolicyData[]>(readSingleton("policies"));

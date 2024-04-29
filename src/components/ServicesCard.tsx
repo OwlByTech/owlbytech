@@ -2,12 +2,20 @@ import { useStore } from "@nanostores/react";
 import { defaultLanguage } from "../services/LanguageStore";
 import { services } from "../services/api";
 import { main } from "../services/api";
+import type { ServicesData } from "../types/Services";
+import type { GlobalData } from "../types/Global";
 
-export default function ServicesCard() {
+
+export type ServicesCardProps = {
+  data: ServicesData[];
+  mainData: GlobalData[]
+}
+
+export default function ServicesCard(props: ServicesCardProps) {
   const $defaultLanguage = useStore(defaultLanguage);
-  const mainData = main.filter(item => item.languages_code === $defaultLanguage);
+  const mainData = props.mainData.filter(item => item.languages_code === $defaultLanguage);
   const item = mainData[0]
-  const filteredServices = services.filter(data => data.languages_id === $defaultLanguage);
+  const filteredServices = props.data.filter(data => data.languages_id === $defaultLanguage);
 
   return (
     <div className="p-10 ml-12"
