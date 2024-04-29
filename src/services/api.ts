@@ -25,6 +25,21 @@ export async function navbarFetching (){
   return await directus.request<Navbar[]>(readSingleton("navbar_translations"))
 }
 
+export async function homeFetching (){
+  return await directus.request<HomeData[]>(readSingleton("home_translations"))
+}
+
+export async function caseCardFetching (){
+  return await directus.request<CaseCard[]>(() => ({
+    path: "/items/case_card_translations",
+    method: "GET",
+  }));
+}
+
+export async function mainFetching(){
+  return await directus.request<GlobalData[]>(readSingleton("global_translations"))
+}
+
 async function apiFetchAll() {
   casecards = await directus.request<CaseCard[]>(() => ({
     path: "/items/case_card_translations",

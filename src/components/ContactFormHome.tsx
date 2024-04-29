@@ -11,7 +11,6 @@ export default function ContactFormHome() {
     const $defaultLanguage = useStore(defaultLanguage);
     const contactFormHomeData = contactFormHome.filter(data => data.languages_code === $defaultLanguage);
 
-    console.log(contactFormHomeData);
     return (
         <div className="flex flex-col justify-center p-20">
 

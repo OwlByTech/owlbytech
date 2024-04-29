@@ -1,0 +1,8 @@
+---
+import Home from "../Home";
+import { homeFetching } from "../../services/api";
+const homeData = await homeFetching();
+---
+
+<Home data={homeData} client:visible />
+

@@ -1,0 +1,19 @@
+---
+import Navbar from "../Navbar";
+import { directusAssets, navbar, navbarFetching } from "../../services/api";
+const navbarResData = await navbarFetching();
+
+const navbarData = navbarResData.map((data) => {
+  const newData = {
+    ...data,
+    header_image: data?.header_image ? directusAssets(data?.header_image): ''
+  };
+  
+  return newData;
+})
+
+---
+
+<Navbar data={navbarData}/>
+
+

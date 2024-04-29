@@ -3,12 +3,19 @@ import { defaultLanguage } from "../services/LanguageStore";
 import { casecards } from "../services/api";
 import directus from "../lib/directus";
 import { main } from "../services/api";
+import type { CaseCard } from "../types/CaseCard";
+import type { GlobalData } from "../types/Global";
 
-export default function CardCase() {
+export type CardCaseProps = {
+    data: CaseCard[]
+    mainData: GlobalData[]
+}
+
+export default function CardCase(props: CardCaseProps) {
     const $defaultLanguage = useStore(defaultLanguage);
-    const mainData = main.filter(item => item.languages_code === $defaultLanguage);
+    const mainData = props.mainData.filter(item => item.languages_code === $defaultLanguage);
     const item = mainData[0]
-    const filteredCaseCards = casecards.filter(data => data.languages_code === $defaultLanguage);
+    const filteredCaseCards = props.data.filter(data => data.languages_code === $defaultLanguage);
 
     return (
         <div className="p-10 ml-12 mb-10">
@@ -20,7 +27,7 @@ export default function CardCase() {
                 {filteredCaseCards.map(data => (
                     <div key={data.id} className="max-w-xs rounded-xl overflow-hidden shadow-lg border border-gray-800">  
                         <div className="p-6">
-                            <img className="w-16 h-16 float-left mr-6 rounded-xl border border-gray-800" src={`${directus.url}assets/${data.image}?width=80`} alt="" />
+                            <img className="w-16 h-16 float-left mr-6 rounded-xl border border-gray-800" src={data.image} alt="" />
                             <div className="">
                                 <h1 className="text-text font-bold text-3xl mb-5 mt-5">{data.title}</h1>
                                 <p className="text-text">{data.description}</p>
@@ -28,7 +35,7 @@ export default function CardCase() {
                         </div>
                         <div className="px-6 py-4">
                             <div className="mt-4">
-                                {data.tags.map((tag, index) => (
+                                {data?.tags?.map((tag, index) => (
                                     <span key={index} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-md font-semibold text-gray-700 mr-2 pb-1 pt-2">{tag}</span>
                                 ))}
                             </div>

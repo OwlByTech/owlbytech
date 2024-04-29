@@ -2,11 +2,15 @@ import React, { useRef, useEffect } from "react";
 import TagCloud from "TagCloud";
 import { useStore } from "@nanostores/react";
 import { defaultLanguage } from "../services/LanguageStore";
-import { home } from "../services/api";
+import type { HomeData } from "../types/Home";
 
-const Home = () => {
+export type HomeProps = {
+  data: HomeData[]
+}
+
+const Home = (props: HomeProps) => {
   const $defaultLanguage = useStore(defaultLanguage);
-  const homeData = home.find(data => data.languages_code === $defaultLanguage);
+  const homeData = props.data.find(data => data.languages_code === $defaultLanguage);
   const sphereRef = useRef(null);
   const tagCloudRef = useRef(null);
 

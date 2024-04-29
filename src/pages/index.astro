@@ -1,41 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Home from "../components/Home";
-import ServicesCard from "../components/ServicesCard";
-import ContactFormHome from "../components/ContactFormHome";
-import CardCase from "../components/CardCase";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import { directus, directusInitialization } from "../lib/directus";
-import { apiFetchAll, directusAssets, navbarFetching} from "../services/api";
-const directus_url = process.env.DIRECTUS_URL;
-console.log(directus_url);
-directusInitialization(directus_url, process.env.DIRECTUS_TOKEN);
-console.log(directus);
+import Home from "../components/astro/Home.astro";
+import CardCase from "../components/astro/CardCase.astro";
+import Navbar from "../components/astro/Navbar.astro";
+import { directusInitialization } from "../lib/directus";
 
-const navbarResData = await navbarFetching();
-console.log(navbarResData);
-
-const navbarData = navbarResData.map((data) => {
-  const newData = {
-    ...data,
-    header_image: data?.header_image ? directusAssets(data?.header_image): ''
-  };
-
-  console.log(newData);
-
-  return newData;
-})
-
-
+directusInitialization(process.env.DIRECTUS_URL, process.env.DIRECTUS_TOKEN);
 ---
 
 <Layout title={""}>
   <main>
-    <Navbar data={navbarData} client:visible />
-    <!-- <Home client:visible />
-     <CardCase client:visible />
-    <ServicesCard client:visible />
+    <Navbar client:visible />
+    <Home client:visible />
+    <CardCase client:visible />
+    <!-- <ServicesCard client:visible />
     <ContactFormHome client:visible />
     <Footer client:visible /> -->
   </main>

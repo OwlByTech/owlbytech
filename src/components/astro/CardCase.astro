@@ -1,0 +1,19 @@
+---
+import { caseCardFetching, directusAssets, mainFetching } from "../../services/api";
+import CaseCard from "../CardCase";
+
+
+const caseCardResData = await caseCardFetching();
+
+const caseCardData = caseCardResData.map((data) => {
+  return {
+    ...data,
+    image: data?.image ? directusAssets(data?.image): ''
+  }
+});
+
+const mainData = await mainFetching();
+---
+
+<CaseCard data={caseCardData} mainData={mainData}/>
+ 
