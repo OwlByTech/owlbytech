@@ -5,25 +5,28 @@ import ServicesCard from "../components/ServicesCard";
 import ContactFormHome from "../components/ContactFormHome";
 import CardCase from "../components/CardCase";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer"
-import { main } from "../services/api";
-
-
+import Footer from "../components/Footer";
+import { directus, directusInitialization } from "../lib/directus";
+import { apiFetchAll, navbar } from "../services/api";
+const directus_url = process.env.DIRECTUS_URL;
+console.log(directus_url);
+directusInitialization(directus_url, process.env.DIRECTUS_TOKEN);
+await apiFetchAll();
 ---
 
 <Layout title={""}>
   <main>
-    <Navbar client:visible />
+    <Navbar data={navbar} client:visible />
     <Home client:visible />
-    <CardCase client:visible />
+    <!--  <CardCase client:visible />
     <ServicesCard client:visible />
     <ContactFormHome client:visible />
-    <Footer client:visible>
+    <Footer client:visible /> -->
   </main>
-</Layout>
 
-<style>
-  main {
-    color: white;
-  }
-</style>
+  <style>
+    main {
+      color: white;
+    }
+  </style>
+</Layout>

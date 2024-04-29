@@ -1,10 +1,20 @@
-import { createDirectus, rest, } from '@directus/sdk';
+import { createDirectus, rest, type DirectusClient, type RestClient, } from '@directus/sdk';
 
-const directusUrl = "https://cms.owlbytech.com"
+let directus: DirectusClient<any> & RestClient<any>;
 
-if (!directusUrl) {
-  throw new Error('DIRECTUS_URL is not defined');
+function directusInitialization(url: string, token: string) {
+  if (!url) {
+    throw new Error('DIRECTUS_URL is not defined');
+  }
+  
+  if (!token) {
+    throw new Error('DIRECTUS_TOKEN is not defined');
+  }
+
+  directus = createDirectus(url).with(rest());
 }
 
-const directus = createDirectus(directusUrl).with(rest());
-export default directus;
+export {
+  directusInitialization,
+  directus
+}
