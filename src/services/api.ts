@@ -18,7 +18,11 @@ import type { GlobalData } from "../types/Global";
 let casecards, navbar: Navbar[], home, main, services, contactFormFieldTranslation, contactFormField, contactFormHome, contactForm, technologies, socialMedia, policies, aboutUs, workers;
 
 export function directusAssets(path: string){
-  return `${directus.url}/assets/${path}`;
+  return `${directus.url}assets/${path}`;
+}
+
+export async function navbarFetching (){
+  return await directus.request<Navbar[]>(readSingleton("navbar_translations"))
 }
 
 async function apiFetchAll() {

@@ -17,7 +17,7 @@ export default function Navbar(props: NavBarProps) {
             <nav className="p-7">
                 <div className="container mx-auto flex justify-between items-center">
                     <div className="flex items-center">
-                        <img className="h-12" src={directusAssets(`${navbarData?.header_image}?width=80`)} alt="" />
+                        <img className="h-12" src={navbarData?.header_image ?? ""} alt="" />
                         <h1 className="text-text text-bold text-2xl ml-4">{navbarData?.header_title}</h1>
                     </div>
                     <div className="flex">

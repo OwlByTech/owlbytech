@@ -7,18 +7,34 @@ import CardCase from "../components/CardCase";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { directus, directusInitialization } from "../lib/directus";
-import { apiFetchAll, navbar } from "../services/api";
+import { apiFetchAll, directusAssets, navbarFetching} from "../services/api";
 const directus_url = process.env.DIRECTUS_URL;
 console.log(directus_url);
 directusInitialization(directus_url, process.env.DIRECTUS_TOKEN);
-await apiFetchAll();
+console.log(directus);
+
+const navbarResData = await navbarFetching();
+console.log(navbarResData);
+
+const navbarData = navbarResData.map((data) => {
+  const newData = {
+    ...data,
+    header_image: data?.header_image ? directusAssets(data?.header_image): ''
+  };
+
+  console.log(newData);
+
+  return newData;
+})
+
+
 ---
 
 <Layout title={""}>
   <main>
-    <Navbar data={navbar} client:visible />
-    <Home client:visible />
-    <!--  <CardCase client:visible />
+    <Navbar data={navbarData} client:visible />
+    <!-- <Home client:visible />
+     <CardCase client:visible />
     <ServicesCard client:visible />
     <ContactFormHome client:visible />
     <Footer client:visible /> -->
