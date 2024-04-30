@@ -1,8 +1,5 @@
 import { useStore } from "@nanostores/react";
 import { defaultLanguage } from "../services/LanguageStore";
-import { casecards } from "../services/api";
-import directus from "../lib/directus";
-import { main } from "../services/api";
 import type { CaseCard } from "../types/CaseCard";
 import type { GlobalData } from "../types/Global";
 

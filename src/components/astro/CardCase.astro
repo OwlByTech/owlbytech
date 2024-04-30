@@ -1,8 +1,6 @@
 ---
 import { caseCardFetching, directusAssets, mainFetching } from "../../services/api";
-import CaseCard from "../CardCase";
-
-
+import CardCase from "../CardCase"
 const caseCardResData = await caseCardFetching();
 
 const caseCardData = caseCardResData.map((data) => {
@@ -15,5 +13,5 @@ const caseCardData = caseCardResData.map((data) => {
 const mainData = await mainFetching();
 ---
 
-<CaseCard data={caseCardData} mainData={mainData}/>
+<CardCase data={caseCardData} mainData={mainData} client:only/>
  

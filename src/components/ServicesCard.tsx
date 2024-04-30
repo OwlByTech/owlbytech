@@ -1,7 +1,5 @@
 import { useStore } from "@nanostores/react";
 import { defaultLanguage } from "../services/LanguageStore";
-import { services } from "../services/api";
-import { main } from "../services/api";
 import type { ServicesData } from "../types/Services";
 import type { GlobalData } from "../types/Global";
 
