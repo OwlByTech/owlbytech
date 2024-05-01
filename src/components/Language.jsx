@@ -17,7 +17,6 @@ export default function Language() {
             <button onClick={handleLanguageChange} className="text-text text-xl px-3">
                 {currentLanguage === "es-ES" ? "EN" : "ES"}
             </button>
-            {currentLanguage}
         </div>
     );
 }
