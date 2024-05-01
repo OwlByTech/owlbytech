@@ -17,34 +17,41 @@ import type { GlobalData } from "../types/Global";
 
 let casecards, navbar: Navbar[], home, main, services, contactFormFieldTranslation, contactFormField, contactFormHome, contactForm, technologies, socialMedia, policies, aboutUs, workers;
 
-export function directusAssets(path: string){
+export function directusAssets(path: string) {
   return `${directus.url}assets/${path}`;
 }
 
-export async function navbarFetching (){
+export async function navbarFetching() {
   return await directus.request<Navbar[]>(readSingleton("navbar_translations"))
 }
 
-export async function homeFetching (){
+export async function homeFetching() {
   return await directus.request<HomeData[]>(readSingleton("home_translations"))
 }
 
-export async function caseCardFetching (){
+export async function caseCardFetching() {
   return await directus.request<CaseCard[]>(() => ({
     path: "/items/case_card_translations",
     method: "GET",
   }));
 }
 
-export async function mainFetching(){
+export async function mainFetching() {
   return await directus.request<GlobalData[]>(readSingleton("global_translations"))
 }
 
-export async function servicesFetching(){
+export async function servicesFetching() {
   return await directus.request<ServicesData[]>(() => ({
     path: "/items/services_translations",
     method: "GET",
   }));
+}
+export async function socialMediaFetching() {
+  return await directus.request<SocialMediaData[]>(readSingleton("social_media"));
+}
+
+export async function policiesFetching() {
+  return await directus.request<PolicyData[]>(readSingleton("policies"));
 }
 
 async function apiFetchAll() {

@@ -1,2 +1,19 @@
 ---
+import { directusAssets } from "../../services/api";
+import { socialMediaFetching, policiesFetching } from "../../services/api";
+import Footer from "../Footer";
+
+
+const socialMediaData = await socialMediaFetching()
+
+const socialMedia = socialMediaData.map((data) => {
+    return {
+        ...data,
+        icon: data?.icon ? directusAssets(data?.icon) : '',
+    };
+});
+
+const policies = await policiesFetching()
 ---
+
+<Footer socialMedia={socialMedia} policies={policies} client:only/>
