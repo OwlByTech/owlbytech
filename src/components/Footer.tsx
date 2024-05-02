@@ -1,5 +1,3 @@
-import { useStore } from "@nanostores/react";
-import { defaultLanguage } from "../services/LanguageStore";
 import type { SocialMediaData } from "../types/SocialMedia"
 import type { PolicyData } from "../types/PolicyData";
 

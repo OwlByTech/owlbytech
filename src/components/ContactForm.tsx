@@ -1,23 +1,27 @@
 import { useStore } from "@nanostores/react";
 import { defaultLanguage } from "../services/LanguageStore";
-import { contactForm, contactFormField, contactFormFieldTranslation } from "../services/api";
 import TextInput from "./core/TextInput";
 import Submit from "./core/Submit";
 import TextArea from "./core/TextArea";
-import type { ContactFormFieldTranslation } from "../types/ContactFormFieldTranslation";
+import type { ContactFormFieldTranslation, FormFieldTranslation } from "../types/ContactFormFieldTranslation";
 import type { ContactFormField } from "../types/ContactFormField";
 import EmailInput from "./core/EmailInput";
 import FileInput from "./core/FileInput";
 import Checkbox from "./core/Checkbox";
 
-type FormFieldTranslation = ContactFormFieldTranslation & ContactFormField;
+export type ContactFormProps = {
+    contactFormHome: any[];
+    contactFormTranslation: any[];
+    contactFormFields: any[];
+    contactForm: any[];
+}
 
-export default function ContactForm() {
+export default function ContactForm(props: ContactFormProps) {
     const $defaultLanguage = useStore(defaultLanguage);
-    const contactFormData = contactForm.filter(data => data.languages_code === $defaultLanguage);
-    const contactFormFieldTranslationsData = contactFormFieldTranslation.filter(data => data.languages_code === $defaultLanguage);
+    const contactFormData = props.contactForm.filter(data => data.languages_code === $defaultLanguage);
+    const contactFormFieldTranslationsData = props.contactFormTranslation.filter(data => data.languages_code === $defaultLanguage);
 
-    const contactFormFields: Array<FormFieldTranslation> = contactFormField.map((field) => {
+    const contactFormFields: Array<FormFieldTranslation> = props.contactFormFields.map((field) => {
         const translation = contactFormFieldTranslationsData.find((translation) => {
             return field.translations.includes(translation.id);
         }) as ContactFormFieldTranslation;

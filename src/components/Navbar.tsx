@@ -1,6 +1,5 @@
 import { defaultLanguage } from "../services/LanguageStore";
 import { useStore } from "@nanostores/react";
-import { directusAssets, navbar } from "../services/api";
 import Language from "./Language";
 import type { Navbar } from "../types/Navbar";
 

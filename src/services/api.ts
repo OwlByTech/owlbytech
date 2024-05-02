@@ -10,10 +10,11 @@ import type { SocialMediaData } from "../types/SocialMedia";
 import type { PolicyData } from "../types/PolicyData";
 import type { AboutUsData } from "../types/AboutUs";
 import type { ContactFormField } from "../types/ContactFormField";
-import type { ContactFormFieldTranslation } from "../types/ContactFormFieldTranslation";
+import type { ContactFormFieldTranslation, FormFieldTranslation } from "../types/ContactFormFieldTranslation";
 import type { WorkerData } from "../types/Worker";
 import type { ContactFormHomeData } from "../types/ContactFormHome";
 import type { GlobalData } from "../types/Global";
+
 
 let casecards, navbar: Navbar[], home, main, services, contactFormFieldTranslation, contactFormField, contactFormHome, contactForm, technologies, socialMedia, policies, aboutUs, workers;
 
@@ -52,6 +53,33 @@ export async function socialMediaFetching() {
 
 export async function policiesFetching() {
   return await directus.request<PolicyData[]>(readSingleton("policies"));
+}
+
+export async function ContactFormHomeFetching(): Promise<ContactFormHomeData[]> {
+  return await directus.request<ContactFormHomeData[]>(readSingleton("contact_form_home_translations"));
+}
+
+export async function ContactFormFetching(): Promise<ContactFormData[]> {
+  return await directus.request<ContactFormData[]>(readSingleton("contact_form_translations"));
+}
+
+export async function ContactFormFieldFetching() {
+  return await directus.request<ContactFormField[]>(readSingleton("contact_form_field"));
+}
+
+export async function ContactFormFieldTranslationFetching() {
+  return await directus.request<ContactFormFieldTranslation[]>(readSingleton("contact_form_field_translations"));
+}
+
+export async function WorkerFetching(): Promise<WorkerData[]>{
+  const workers = await directus.request<WorkerData[]>(readSingleton("worker"));
+  return workers.map((data) => {
+    data.github
+    return {
+      ...data,
+      character:  directusAssets(data.character)
+    }
+  })
 }
 
 async function apiFetchAll() {
