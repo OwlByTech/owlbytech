@@ -1,7 +1,7 @@
 ---
 //@ts-ignore
 import Navbar from "../react/Navbar";
-import { navbarFetching } from "../../services/api";
+import { directusAssets, globalFetching, navbarFetching } from "../../services/api";
 const navbarResData = await navbarFetching();
 
 const navbarData = navbarResData.map((data) => {
@@ -13,8 +13,11 @@ const navbarData = navbarResData.map((data) => {
   return newData;
 })
 
+const globalData = await globalFetching();
+globalData.logo = directusAssets(globalData.logo);
+
 ---
 
-<Navbar data={navbarData} client:only="react"/>
+<Navbar data={navbarData} global={globalData} client:only="react"/>
 
 

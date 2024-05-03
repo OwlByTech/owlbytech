@@ -27,9 +27,9 @@ export default function Footer(props: FooterProps) {
     const filteredAboutUs = aboutUsFooter.filter(data => data.languages_code === $defaultLanguage);
 
     return (
-        <footer className="flex flex-col px-32 gap-5 justify-center items-center">
+        <footer className="flex flex-col px-8 md:px-32 gap-5 justify-center items-center">
             <hr className="border-b-1 border-black w-full" />
-            <div className="flex flex-col sm:flex-row w-full justify-between">
+            <div className="flex flex-col md:flex-wrap sm:flex-row w-full justify-between">
                 <div className="flex flex-col text-center gap-4">
                     <h3 className="text-text text-left text-lg font-semibold">Redes Sociales</h3>
                     <div>
@@ -72,8 +72,8 @@ export default function Footer(props: FooterProps) {
                 </div>
             </div>
             <hr className="mt-8 border-b-1 border-black w-full" />
-            <div className="flex w-full justify-between items-center">
-                <img src={global.logo} alt="" className="w-80 h-80" />
+            <div className="flex flex-col md:flex-row w-full justify-between items-center gap-4">
+                <img src={global.logo} alt="" className="w-80" />
                 <p className="text-text text-right">{global.copyright}</p>
             </div>
         </footer>

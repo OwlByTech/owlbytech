@@ -35,7 +35,7 @@ export default function ContactForm(props: ContactFormProps) {
 
     return (
         <div className={
-            "flex flex-col sm:flex-row border border-text border-solid rounded-xl gap-14 p-24 text-text"
+            "flex flex-col sm:flex-row border border-text border-solid rounded-xl gap-14 p-4 md:p-24 text-text"
         }>
             {contactFormData.map((data, index) => (
                 <div className="flex flex-col w-full gap-7" key={index}>
