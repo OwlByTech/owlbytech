@@ -9,7 +9,7 @@ import ContactFormHome from "../components/astro/ContactFormHome.astro";
 import Footer from "../components/astro/Footer.astro";
 
 //@ts-ignore
-directusInitialization(process.env.DIRECTUS_URL, process.env.DIRECTUS_TOKEN);
+await directusInitialization(process.env.DIRECTUS_URL, process.env.DIRECTUS_BUSINESS_EMAIL, process.env.DIRECTUS_BUSINESS_PASSWORD);
 ---
 
 <Layout title={""}>

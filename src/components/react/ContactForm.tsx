@@ -45,7 +45,7 @@ export default function ContactForm(props: ContactFormProps) {
             ))}
 
 
-            <form className="flex flex-col w-full gap-6">
+            <form method="POST" className="flex flex-col w-full gap-6">
                 {
                     contactFormFields.map((data, index) => {
                         const required = data.required;

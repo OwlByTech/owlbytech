@@ -5,6 +5,7 @@ import ContactStep6To9SVG from "../../assets/contact/ContactStep6To9SVG";
 import ContactForm from "./ContactForm";
 import { defaultLanguage } from "../../services/LanguageStore";
 import OurTeam from "./OurTeam";
+import type { ReactNode } from "react";
 
 export type ContactFormHomeProps = {
     contactFormHome: any[];
@@ -12,6 +13,7 @@ export type ContactFormHomeProps = {
     contactFormFields: any[];
     contactForm: any[];
     workers: any[];
+    children: ReactNode
 }
 
 
@@ -36,10 +38,9 @@ export default function ContactFormHome(props: ContactFormHomeProps) {
                             step2={data.step2}
                             step3={data.step3}
                         />
-                        <ContactForm contactFormHome={props.contactFormHome}
-                            contactFormTranslation={props.contactFormTranslation}
-                            contactFormFields={props.contactFormFields}
-                            contactForm={props.contactForm} />
+
+                        {props.children}
+
                         <ContactStep4To5SVG
                             step4={data.step4}
                             step5={data.step5}

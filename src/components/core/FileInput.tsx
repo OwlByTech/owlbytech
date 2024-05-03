@@ -6,9 +6,10 @@ export type FileInputProps = {
 export default function FileInput(props: FileInputProps) {
     return (
         <input
-            name={props.name}
+            name={`${props.name}[]`}
             required={props.required}
             type="file"
+            multiple
         />
     );
 }
