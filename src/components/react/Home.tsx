@@ -50,7 +50,7 @@ const Home = (props: HomeProps) => {
   }, [$defaultLanguage, width]);
 
   return (
-    <div className="container mx-auto">
+    <div id="0" className="container mx-auto">
       {homeData && (
         <div>
           <div className="relative">

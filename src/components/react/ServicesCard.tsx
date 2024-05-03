@@ -16,7 +16,7 @@ export default function ServicesCard(props: ServicesCardProps) {
   const filteredServices = props.data.filter(data => data.languages_id === $defaultLanguage);
 
   return (
-    <div className="flex flex-col p-8 md:px-32 gap-10"
+    <div id="1" className="flex flex-col p-8 md:px-32 gap-10"
       style={{ minHeight: "400px", marginBottom: "300px" }}
     >
       <div className="flex flex-col gap-2">

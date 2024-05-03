@@ -15,7 +15,7 @@ export default function CardCase(props: CardCaseProps) {
     const filteredCaseCards = props.data.filter(data => data.languages_code === $defaultLanguage);
 
     return (
-        <div className="flex flex-col p-8 items-center md:p-32 gap-16">
+        <div id="2" className="flex flex-col p-8 items-center md:p-32 gap-16">
             <div>
                 <h1 className="text-text font-bold text-4xl md:text-6xl">
                     {item.case_title}
@@ -42,5 +42,6 @@ export default function CardCase(props: CardCaseProps) {
                 ))}
             </div>
         </div>
+
     );
 }
