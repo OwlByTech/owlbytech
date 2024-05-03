@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  web:
+    build: ./
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    ports:
+      - 4321:4321
+    networks:
+      app:
+        ipv4_address: 10.14.0.4
+
+networks:
+  app:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.14.0.0/16
+          gateway: 10.14.0.1

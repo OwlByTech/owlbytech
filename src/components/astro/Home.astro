@@ -1,0 +1,9 @@
+---
+//@ts-ignore
+import Home from "../react/Home";
+import { homeFetching } from "../../services/api";
+const homeData = await homeFetching();
+---
+
+<Home data={homeData} client:only="react" />
+

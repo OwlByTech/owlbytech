@@ -1,0 +1,36 @@
+---
+if(Astro.request.method === "POST"){
+    try{
+        const formData = await Astro.request.formData();
+        //const documents = formData.getAll('documents');
+        await directus.request(createItem('client_idea',  Object.fromEntries(formData)));  
+    }catch(e){
+        console.error(e);
+    }
+}
+
+//@ts-ignore
+import ContactForm from "../react/ContactForm";
+
+import {
+    ContactFormFetching,
+    ContactFormHomeFetching,
+    ContactFormFieldFetching,
+    ContactFormFieldTranslationFetching,
+} from "../../services/api";
+import { directus } from "../../lib/directus";
+import { createItem } from "@directus/sdk";
+
+const contactFormHome = await ContactFormHomeFetching();
+const contactForm = await ContactFormFetching();
+const contactFormFields = await ContactFormFieldFetching();
+const contactFormTranslation = await ContactFormFieldTranslationFetching();
+---
+
+<ContactForm
+    contactFormHome={contactFormHome}
+    contactFormTranslation={contactFormTranslation}
+    contactFormFields={contactFormFields}
+    contactForm={contactForm}
+    client:only="react"
+/>

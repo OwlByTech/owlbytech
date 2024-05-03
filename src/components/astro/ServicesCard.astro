@@ -1,0 +1,11 @@
+---
+import { mainFetching, servicesFetching } from "../../services/api"
+//@ts-ignore
+import ServicesCard from "../react/ServicesCard"
+
+const services = await servicesFetching();
+
+const mainData = await mainFetching();
+---
+
+<ServicesCard data={services} mainData={mainData} client:only="react"/>

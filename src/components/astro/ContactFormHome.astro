@@ -1,0 +1,29 @@
+---
+//@ts-ignore
+import ContactFormHome from "../react/ContactFormHome";
+import {
+    ContactFormFetching,
+    ContactFormHomeFetching,
+    ContactFormFieldFetching,
+    ContactFormFieldTranslationFetching,
+    WorkerFetching,
+} from "../../services/api";
+import ContactForm from "./ContactForm.astro";
+
+const contactFormHome = await ContactFormHomeFetching();
+const contactForm = await ContactFormFetching();
+const contactFormFields = await ContactFormFieldFetching();
+const contactFormTranslation = await ContactFormFieldTranslationFetching();
+const workers = await WorkerFetching();
+---
+
+<ContactFormHome
+    contactFormHome={contactFormHome}
+    contactForm={contactForm}
+    contactFormFields={contactFormFields}
+    contactFormTranslation={contactFormTranslation}
+    workers={workers}
+    client:only="react"
+>
+    <ContactForm/>
+</ContactFormHome>
