@@ -85,7 +85,7 @@ export default function Footer(props: FooterProps) {
       </div>
       <hr className="mt-8 border-b-1 border-black w-full" />
       <div className="flex flex-col md:flex-row w-full justify-between items-center gap-4">
-        <img src={global.logo} alt="" className="w-80" />
+        <img src={global.logo} alt="" className="w-48" />
         <p className="text-text text-right">{global.copyright}</p>
       </div>
     </footer>
