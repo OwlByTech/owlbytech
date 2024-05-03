@@ -48,6 +48,7 @@ export default function ContactForm(props: ContactFormProps) {
             <form method="POST" className="flex flex-col w-full gap-6">
                 {
                     contactFormFields.map((data, index) => {
+                        if(!data.enable) return
                         const required = data.required;
                         const name = data.name;
                         const placeholder = data.placeholder;
