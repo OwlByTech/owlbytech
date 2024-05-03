@@ -1,5 +1,5 @@
-export interface TechnologyData{
-    name: string;
-    icon: string;
-    link: string;
+export interface TechnologyData {
+  name: string;
+  icon: string;
+  link: string;
 }

@@ -1,9 +1,7 @@
-import { persistentAtom } from '@nanostores/persistent'
+import { persistentAtom } from "@nanostores/persistent";
 
+export const defaultLanguage = persistentAtom("lang", "en-US");
 
-export const defaultLanguage =  persistentAtom('lang', 'en-US')
-
-export function changeLanguage(language:any) {
-    defaultLanguage.set(language);
-
+export function changeLanguage(language: any) {
+  defaultLanguage.set(language);
 }

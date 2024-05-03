@@ -1,5 +1,5 @@
 export interface PolicyData {
-    title: string;
-    link: string;
-    languages_code: string;
+  title: string;
+  link: string;
+  languages_code: string;
 }

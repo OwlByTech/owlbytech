@@ -1,5 +1,5 @@
 export interface SocialMediaData {
-    name: string;
-    icon: string;
-    link: string;
+  name: string;
+  icon: string;
+  link: string;
 }

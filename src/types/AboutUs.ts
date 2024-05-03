@@ -1,5 +1,5 @@
 export interface AboutUsData {
-    name: string;
-    logo: string;
-    favicon: string;
+  name: string;
+  logo: string;
+  favicon: string;
 }
