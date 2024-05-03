@@ -3,5 +3,6 @@ export type MainData = {
     favicon:      string;
     logo:         string;
     title:        string;
+    copyright: string;
     translations: number[];
 }

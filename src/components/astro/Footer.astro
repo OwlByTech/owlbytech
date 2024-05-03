@@ -1,4 +1,6 @@
 ---
+import { directus } from "../../lib/directus";
+import { aboutUsFooterFetching, directusAssets } from "../../services/api";
 import { socialMediaFetching, policiesFetching, servicesFetching, globalFetching } from "../../services/api";
 //@ts-ignore
 import Footer from "../react/Footer";
@@ -9,7 +11,7 @@ const socialMediaData = await socialMediaFetching()
 const socialMedia = socialMediaData.map((data) => {
     return {
         ...data,
-        //icon: data?.icon ? directusAssets(data?.icon) : '',
+        icon: data?.icon ? directusAssets(data?.icon) : '',
     };
 });
 
@@ -23,7 +25,12 @@ const services = servicesData.map((data)=>{
     }
 })
 
-const global = await globalFetching()
+const globalData = await globalFetching()
+
+globalData.logo = directusAssets(globalData.logo)
+
+const aboutUsFooter = await aboutUsFooterFetching()
+
 ---
 
-<Footer socialMedia={socialMedia} policies={policies} services={services} global={global} client:only="react"/>
+<Footer socialMedia={socialMedia} policies={policies} services={services} global={globalData} aboutUsFooter={aboutUsFooter} client:only="react"/>
