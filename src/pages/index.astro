@@ -7,12 +7,16 @@ import { directusInitialization } from "../lib/directus";
 import ServicesCard from "../components/astro/ServicesCard.astro";
 import ContactFormHome from "../components/astro/ContactFormHome.astro";
 import Footer from "../components/astro/Footer.astro";
+import { directusAssets, globalFetching } from "../services/api";
 
 //@ts-ignore
 await directusInitialization(process.env.DIRECTUS_URL, process.env.DIRECTUS_BUSINESS_EMAIL, process.env.DIRECTUS_BUSINESS_PASSWORD);
+
+const global = await globalFetching()
+global.favicon = directusAssets(global.favicon) 
 ---
 
-<Layout title={""}>
+<Layout title={global.title} favicon={global.favicon}>
   <main>
     <Navbar />
     <Home />
