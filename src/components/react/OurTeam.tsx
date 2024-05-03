@@ -1,4 +1,4 @@
-import type { WorkerData } from "../types/Worker";
+import type { WorkerData } from "../../types/Worker";
 
 export type OurTeamProps = {
     workers: WorkerData[]

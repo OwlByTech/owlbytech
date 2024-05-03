@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import TagCloud from "TagCloud";
 import { useStore } from "@nanostores/react";
-import { defaultLanguage } from "../services/LanguageStore";
-import type { HomeData } from "../types/Home";
+import { defaultLanguage } from "../../services/LanguageStore";
+import type { HomeData } from "../../types/Home";
 
 export type HomeProps = {
   data: HomeData[]
@@ -18,16 +18,20 @@ const Home = (props: HomeProps) => {
     if (!homeData) return;
     const myTags = homeData.home_words;
     if (tagCloudRef.current) {
+      //@ts-ignore
       tagCloudRef.current.destroy(); 
     }
+    //@ts-ignore
     const tagCloudInstance = TagCloud(sphereRef.current, myTags, {
       radius: 400,
       maxSpeed: "slow",
       initSpeed: "fast",
+      //@ts-ignore
       direction: 100,
       keep: true,
     });
 
+    //@ts-ignore
     tagCloudRef.current = tagCloudInstance;
   }, [$defaultLanguage]);
 

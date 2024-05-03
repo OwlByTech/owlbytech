@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useStore } from "@nanostores/react";
-import { defaultLanguage, changeLanguage } from "../services/LanguageStore";
+import { changeLanguage, defaultLanguage } from "../../services/LanguageStore";
 
 export default function Language() {
     const $defaultLanguage = useStore(defaultLanguage);
-    const [currentLanguage, setCurrentLanguage] = useState($defaultLanguage);
+    const [currentLanguage, setCurrentLanguage] = useState<string>($defaultLanguage);
 
     const handleLanguageChange = () => {
         const newLanguage = currentLanguage === "es-ES" ? "en-US" : "es-ES";

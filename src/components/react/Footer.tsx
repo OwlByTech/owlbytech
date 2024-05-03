@@ -1,5 +1,5 @@
-import type { SocialMediaData } from "../types/SocialMedia"
-import type { PolicyData } from "../types/PolicyData";
+import type { SocialMediaData } from "../../types/SocialMedia"
+import type { PolicyData } from "../../types/PolicyData";
 
 export type FooterProps = {
     socialMedia: SocialMediaData[]
