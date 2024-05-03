@@ -27,44 +27,54 @@ export default function Footer(props: FooterProps) {
     const filteredAboutUs = aboutUsFooter.filter(data => data.languages_code === $defaultLanguage);
 
     return (
-        <footer className="py-8">
-            <hr className="mb-5 border-b-1 border-black w-5/6 mx-auto" />
-            <div className="container mx-auto flex justify-center">
-                <div className="w-1/4 text-center">
-                    <h3 className="text-text text-left text-lg font-semibold mb-4">Redes Sociales</h3>
-                    {socialMedia.map(data => (
-                        <a href={data.link}>
-                            <div className="flex space-x-2">
-                                <img src={data.icon} alt="" className="h-5 w-5" />
-                                <p className="text-text text-left">{data.name}  </p>
-                            </div>
-                        </a>
-                    ))}
+        <footer className="flex flex-col px-32 gap-5 justify-center items-center">
+            <hr className="border-b-1 border-black w-full" />
+            <div className="flex flex-col sm:flex-row w-full justify-between">
+                <div className="flex flex-col text-center gap-4">
+                    <h3 className="text-text text-left text-lg font-semibold">Redes Sociales</h3>
+                    <div>
+                        {socialMedia.map(data => (
+                            <a href={data.link}>
+                                <div className="flex space-x-2">
+                                    <img src={data.icon} alt="" className="h-5 w-5" />
+                                    <p className="text-text text-left">{data.name}  </p>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
                 </div>
-                <div className="w-1/4 text-center">
-                    <h3 className="text-text text-left text-lg font-semibold mb-4">Servicios</h3>
-                    {filteredServices.map(data => (
-                        <p className="text-text text-left" key={data.id}>{data.title}</p>
-                    ))}
+                <div className="flex flex-col text-center gap-4">
+                    <h3 className="text-text text-left text-lg font-semibold">Servicios</h3>
+                    <div>
+                        {filteredServices.map(data => (
+                            <p className="text-text text-left" key={data.id}>{data.title}</p>
+                        ))}
+                    </div>
+
                 </div>
 
-                <div className="w-1/4 text-center">
-                    <h3 className="text-text text-left text-lg font-semibold mb-4">About Us</h3>
-                    {filteredAboutUs.map(data => (
-                        <p className="text-text text-left">{data.title}</p>
-                    ))}
+                <div className="flex flex-col text-center gap-4">
+                    <h3 className="text-text text-left text-lg font-semibold">About Us</h3>
+                    <div>
+                        {filteredAboutUs.map(data => (
+                            <p className="text-text text-left">{data.title}</p>
+                        ))}
+                    </div>
                 </div>
-                <div className="w-1/4 text-center">
-                    <h3 className="text-text text-left text-lg font-semibold mb-4">Políticas</h3>
-                    {filteredPolicy.map(item => (
-                        <p className="text-text text-left">{item.title}</p>
-                    ))}
+                <div className="flex flex-col text-center gap-4">
+                    <h3 className="text-text text-left text-lg font-semibold">Políticas</h3>
+                    <div>
+                        {filteredPolicy.map(item => (
+                            <p className="text-text text-left">{item.title}</p>
+                        ))}
+                    </div>
+
                 </div>
             </div>
-            <hr className="mt-8 border-b-1 border-black w-5/6 mx-auto" />
-            <div className="container mx-auto flex justify-between items-center">
-                <img src={global.logo} alt="" className="w-80 h-80 w-1/2" />
-                <p className="text-text text-right w-1/2">{global.copyright}</p>
+            <hr className="mt-8 border-b-1 border-black w-full" />
+            <div className="flex w-full justify-between items-center">
+                <img src={global.logo} alt="" className="w-80 h-80" />
+                <p className="text-text text-right">{global.copyright}</p>
             </div>
         </footer>
     );
