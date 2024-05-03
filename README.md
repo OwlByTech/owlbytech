@@ -1,3 +1,3 @@
 <p align="center">
-    <img width="300" src="./homepage/public/Icon.png"/>
+    <img width="300" src="./assets/Logo.png"/>
 </p>
