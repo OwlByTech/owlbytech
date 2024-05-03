@@ -15,16 +15,20 @@ export default function Navbar(props: NavBarProps) {
 
     return (
         <nav className="flex flex-col p-8 md:px-32 gap-3">
-            <div className="flex w-full flex-col md:flex-row justify-between items-center">
+            <div className="flex w-full flex-col md:flex-row justify-between items-center gap-3">
                 <div className="flex justify-center items-center">
                     <img src={props.global.logo} alt="" className="w-48" />
                 </div>
-                <div className="hidden md:flex">
-                    {navbarData?.sections?.map((item, index) => (
-                        <p key={index} className="text-text text-bold text-xl ml-4">{item}</p>
-                    ))}
+                <div className="flex flex-col md:flex-row gap-4">
+                    <div className="flex flex-wrap gap-2 justify-between">
+                        {navbarData?.sections?.map((item, index) => (
+                            <a key={index} className="cursor-pointer hover:font-bold text-text font-thin text-xl ml-4">{item}</a>
+                        ))}
+
+                    </div>
                     <Language />
                 </div>
+
             </div>
             <hr className="border-b-1 border-black w-full mx-auto" />
 
