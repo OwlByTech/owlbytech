@@ -21,15 +21,15 @@ export default function ContactStep1To3SVG(props: ContactStep1To3SVGProps) {
           <path
             d="M81.9995 61C40.9995 61 51 75 48.9995 101"
             stroke="#4B4B4B"
-            stroke-width="1.6875"
-            stroke-dasharray="3.38 3.38"
+            strokeWidth="1.6875"
+            strokeDasharray="3.38 3.38"
           />
           <text
             fill="#4B4B4B"
-            font-family="Archivo"
-            font-size="14"
-            font-weight="100"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="14"
+            fontWeight="100"
+            letterSpacing="0em"
           >
             <tspan x="220" y="12.176">
               {" "}
@@ -38,10 +38,10 @@ export default function ContactStep1To3SVG(props: ContactStep1To3SVGProps) {
           </text>
           <text
             fill="#4B4B4B"
-            font-family="Archivo"
-            font-size="14"
-            font-weight="100"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="14"
+            fontWeight="100"
+            letterSpacing="0em"
           >
             <tspan x="90" y="67.176">
               {" "}
@@ -54,10 +54,10 @@ export default function ContactStep1To3SVG(props: ContactStep1To3SVGProps) {
           />
           <text
             fill="#4B4B4B"
-            font-family="Archivo"
-            font-size="14"
-            font-weight="100"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="14"
+            fontWeight="100"
+            letterSpacing="0em"
           >
             <tspan x="21" y="129.176">
               3. {props.step3}
@@ -73,10 +73,10 @@ export default function ContactStep1To3SVG(props: ContactStep1To3SVGProps) {
         >
           <text
             fill="#2E2C2F"
-            font-family="Archivo"
-            font-size="32"
-            font-weight="100"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="32"
+            fontWeight="100"
+            letterSpacing="0em"
           >
             <tspan x="937" y="28.188">
               1. {props.step1}
@@ -84,10 +84,10 @@ export default function ContactStep1To3SVG(props: ContactStep1To3SVGProps) {
           </text>
           <text
             fill="#2E2C2F"
-            font-family="Archivo"
-            font-size="32"
-            font-weight="100"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="32"
+            fontWeight="100"
+            letterSpacing="0em"
           >
             <tspan x="370" y="198">
               2. {props.step2}
@@ -104,15 +104,15 @@ export default function ContactStep1To3SVG(props: ContactStep1To3SVGProps) {
           <path
             d="M329 185.14C254.955 185.14 144 177.455 144 276"
             stroke="#2E2C2F"
-            stroke-width="3"
-            stroke-dasharray="6 6"
+            strokeWidth="3"
+            strokeDasharray="6 6"
           />
           <text
             fill="black"
-            font-family="Archivo"
-            font-size="32"
-            font-weight="100"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="32"
+            fontWeight="100"
+            letterSpacing="0em"
           >
             <tspan y="325">3. {props.step3}</tspan>
           </text>

@@ -19,10 +19,10 @@ export default function ContactStep6To9SVG(props: ContactStep6To9SVGProps) {
         >
           <text
             fill="#4B4B4B"
-            font-family="Archivo"
-            font-size="36"
-            font-weight="bold"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="36"
+            fontWeight="bold"
+            letterSpacing="0em"
           >
             <tspan x="15" y="396.524">
               {props.congratulation}
@@ -30,10 +30,10 @@ export default function ContactStep6To9SVG(props: ContactStep6To9SVGProps) {
           </text>
           <text
             fill="#4B4B4B"
-            font-family="Archivo"
-            font-size="13.5"
-            font-weight="300"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="13.5"
+            fontWeight="300"
+            letterSpacing="0em"
           >
             <tspan x="15" y="416.009">
               {props.phrase}
@@ -41,10 +41,10 @@ export default function ContactStep6To9SVG(props: ContactStep6To9SVGProps) {
           </text>
           <text
             fill="#4B4B4B"
-            font-family="Archivo"
-            font-size="16"
-            font-weight="100"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="16"
+            fontWeight="100"
+            letterSpacing="0em"
           >
             <tspan x="190" y="119.844">
               8. {props.step8}
@@ -52,10 +52,10 @@ export default function ContactStep6To9SVG(props: ContactStep6To9SVGProps) {
           </text>
           <text
             fill="#4B4B4B"
-            font-family="Archivo"
-            font-size="16"
-            font-weight="100"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="16"
+            fontWeight="100"
+            letterSpacing="0em"
           >
             <tspan x="24" y="13.844">
               6. {props.step6}
@@ -63,10 +63,10 @@ export default function ContactStep6To9SVG(props: ContactStep6To9SVGProps) {
           </text>
           <text
             fill="#4B4B4B"
-            font-family="Archivo"
-            font-size="16"
-            font-weight="100"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="16"
+            fontWeight="100"
+            letterSpacing="0em"
           >
             <tspan x="170" y="46.844">
               7. {props.step7}
@@ -90,10 +90,10 @@ export default function ContactStep6To9SVG(props: ContactStep6To9SVGProps) {
           />
           <text
             fill="#4B4B4B"
-            font-family="Archivo"
-            font-size="16"
-            font-weight="100"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="16"
+            fontWeight="100"
+            letterSpacing="0em"
           >
             <tspan x="59" y="192">
               9. {props.step9}
@@ -109,10 +109,10 @@ export default function ContactStep6To9SVG(props: ContactStep6To9SVGProps) {
         >
           <text
             fill="#2E2C2F"
-            font-family="Archivo"
-            font-size="32"
-            font-weight="100"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="32"
+            fontWeight="100"
+            letterSpacing="0em"
           >
             <tspan x="800" y="101.188">
               6. {props.step6}
@@ -120,10 +120,10 @@ export default function ContactStep6To9SVG(props: ContactStep6To9SVGProps) {
           </text>
           <text
             fill="#2E2C2F"
-            font-family="Archivo"
-            font-size="32"
-            font-weight="100"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="32"
+            fontWeight="100"
+            letterSpacing="0em"
           >
             <tspan x="410" y="166.188">
               7. {props.step7}
@@ -131,10 +131,10 @@ export default function ContactStep6To9SVG(props: ContactStep6To9SVGProps) {
           </text>
           <text
             fill="#2E2C2F"
-            font-family="Archivo"
-            font-size="32"
-            font-weight="100"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="32"
+            fontWeight="100"
+            letterSpacing="0em"
           >
             <tspan x="10" y="127.188">
               8. {props.step8}
@@ -142,10 +142,10 @@ export default function ContactStep6To9SVG(props: ContactStep6To9SVGProps) {
           </text>
           <text
             fill="#2E2C2F"
-            font-family="Archivo"
-            font-size="32"
-            font-weight="100"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="32"
+            fontWeight="100"
+            letterSpacing="0em"
           >
             <tspan x="180" y="384.188">
               9. {props.step9}
@@ -153,10 +153,10 @@ export default function ContactStep6To9SVG(props: ContactStep6To9SVGProps) {
           </text>
           <text
             fill="#2E2C2F"
-            font-family="Archivo"
-            font-size="48"
-            font-weight="bold"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="48"
+            fontWeight="bold"
+            letterSpacing="0em"
           >
             <tspan x="697" y="590.032">
               {props.congratulation}
@@ -164,10 +164,10 @@ export default function ContactStep6To9SVG(props: ContactStep6To9SVGProps) {
           </text>
           <text
             fill="#2E2C2F"
-            font-family="Archivo"
-            font-size="24"
-            font-weight="300"
-            letter-spacing="0em"
+            fontFamily="Archivo"
+            fontSize="24"
+            fontWeight="300"
+            letterSpacing="0em"
           >
             <tspan x="647" y="629.016">
               {props.phrase}

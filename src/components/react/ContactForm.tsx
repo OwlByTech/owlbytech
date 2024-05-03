@@ -90,16 +90,17 @@ export default function ContactForm(props: ContactFormProps) {
             case "email-input":
               return (
                 <EmailInput
+                key={index}
                   name={name}
                   placeholder={placeholder}
                   required={required}
                 />
               );
             case "file-input":
-              return <FileInput name={name} required={required} />;
+              return <FileInput key={index} name={name} required={required} />;
             case "checkbox":
               return (
-                <Checkbox name={name} value={placeholder} required={required} />
+                <Checkbox key={index} name={name} value={placeholder} required={required} />
               );
           }
         })}

@@ -1,4 +1,3 @@
-import React from "react";
 import { useStore } from "@nanostores/react";
 import { defaultLanguage } from "../../services/LanguageStore";
 import type { SocialMediaData } from "../../types/SocialMedia";
@@ -39,8 +38,8 @@ export default function Footer(props: FooterProps) {
             Redes Sociales
           </h3>
           <div>
-            {socialMedia.map((data) => (
-              <a href={data.link}>
+            {socialMedia.map((data, index) => (
+              <a key={index} href={data.link}>
                 <div className="flex space-x-2">
                   <img src={data.icon} alt="" className="h-5 w-5" />
                   <p className="text-text text-left">{data.name} </p>
@@ -54,8 +53,8 @@ export default function Footer(props: FooterProps) {
             Servicios
           </h3>
           <div>
-            {filteredServices.map((data) => (
-              <p className="text-text text-left" key={data.id}>
+            {filteredServices.map((data, index) => (
+              <p className="text-text text-left" key={index}>
                 {data.title}
               </p>
             ))}
@@ -67,8 +66,8 @@ export default function Footer(props: FooterProps) {
             About Us
           </h3>
           <div>
-            {filteredAboutUs.map((data) => (
-              <p className="text-text text-left">{data.title}</p>
+            {filteredAboutUs.map((data, index) => (
+              <p key={index} className="text-text text-left">{data.title}</p>
             ))}
           </div>
         </div>
@@ -77,8 +76,8 @@ export default function Footer(props: FooterProps) {
             Políticas
           </h3>
           <div>
-            {filteredPolicy.map((item) => (
-              <p className="text-text text-left">{item.title}</p>
+            {filteredPolicy.map((item, index) => (
+              <p key={index} className="text-text text-left">{item.title}</p>
             ))}
           </div>
         </div>
