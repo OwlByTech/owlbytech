@@ -4,11 +4,10 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  
   title: "OwlByTech",
   description: "OwlByTech",
   icons: {
-    icon: '/Icon.png', 
+    icon: "/Icon.png",
   },
 };
 
