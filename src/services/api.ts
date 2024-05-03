@@ -14,7 +14,7 @@ import type { ContactFormFieldTranslation, FormFieldTranslation } from "../types
 import type { WorkerData } from "../types/Worker";
 import type { ContactFormHomeData } from "../types/ContactFormHome";
 import type { GlobalData } from "../types/Global";
-
+import type { MainData} from "../types/Main"
 
 let casecards, navbar: Navbar[], home, main, services, contactFormFieldTranslation, contactFormField, contactFormHome, contactForm, technologies, socialMedia, policies, aboutUs, workers;
 
@@ -52,7 +52,7 @@ export async function socialMediaFetching() {
 }
 
 export async function policiesFetching() {
-  return await directus.request<PolicyData[]>(readSingleton("policies"));
+  return await directus.request<PolicyData[]>(readSingleton("policies_translations"));
 }
 
 export async function ContactFormHomeFetching(): Promise<ContactFormHomeData[]> {
@@ -71,13 +71,17 @@ export async function ContactFormFieldTranslationFetching() {
   return await directus.request<ContactFormFieldTranslation[]>(readSingleton("contact_form_field_translations"));
 }
 
-export async function WorkerFetching(): Promise<WorkerData[]>{
+export async function globalFetching(){
+  return await directus.request<MainData[]>(readSingleton("global"))
+}
+
+export async function WorkerFetching(): Promise<WorkerData[]> {
   const workers = await directus.request<WorkerData[]>(readSingleton("worker"));
   return workers.map((data) => {
     data.github
     return {
       ...data,
-      character:  directusAssets(data.character)
+      character: directusAssets(data.character)
     }
   })
 }
@@ -104,10 +108,10 @@ async function apiFetchAll() {
   contactFormHome = await directus.request<ContactFormHomeData[]>(readSingleton("contact_form_home_translations"));
   contactForm = await directus.request<ContactFormData[]>(readSingleton("contact_form_translations"));
 
-
   technologies = await directus.request<TechnologyData[]>(readSingleton("technologies"));
   socialMedia = await directus.request<SocialMediaData[]>(readSingleton("social_media"));
   policies = await directus.request<PolicyData[]>(readSingleton("policies"));
+
   aboutUs = await directus.request<AboutUsData[]>(readSingleton("about_us"));
   workers = await directus.request<WorkerData[]>(readSingleton("worker"));
 }

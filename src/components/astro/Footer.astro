@@ -1,6 +1,6 @@
 ---
 import { directusAssets } from "../../services/api";
-import { socialMediaFetching, policiesFetching } from "../../services/api";
+import { socialMediaFetching, policiesFetching, servicesFetching, globalFetching } from "../../services/api";
 import Footer from "../Footer";
 
 
@@ -14,6 +14,16 @@ const socialMedia = socialMediaData.map((data) => {
 });
 
 const policies = await policiesFetching()
+const servicesData = await servicesFetching()
+
+const services = servicesData.map((data)=>{
+    return{
+        title: data.title,
+        languages_id: data.languages_id
+    }
+})
+
+const global = await globalFetching()
 ---
 
-<Footer socialMedia={socialMedia} policies={policies} client:only/>
+<Footer socialMedia={socialMedia} policies={policies} services={services} global={global} client:only/>
