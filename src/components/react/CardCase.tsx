@@ -1,7 +1,7 @@
 import { useStore } from "@nanostores/react";
-import { defaultLanguage } from "../services/LanguageStore";
-import type { CaseCard } from "../types/CaseCard";
-import type { GlobalData } from "../types/Global";
+import { defaultLanguage } from "../../services/LanguageStore";
+import type { CaseCard } from "../../types/CaseCard";
+import type { GlobalData } from "../../types/Global";
 
 export type CardCaseProps = {
     data: CaseCard[]

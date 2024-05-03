@@ -1,7 +1,7 @@
 import { useStore } from "@nanostores/react";
-import { defaultLanguage } from "../services/LanguageStore";
-import type { ServicesData } from "../types/Services";
-import type { GlobalData } from "../types/Global";
+import { defaultLanguage } from "../../services/LanguageStore";
+import type { ServicesData } from "../../types/Services";
+import type { GlobalData } from "../../types/Global";
 
 
 export type ServicesCardProps = {

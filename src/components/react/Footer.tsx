@@ -1,9 +1,9 @@
-import type { SocialMediaData } from "../types/SocialMedia"
-import type { PolicyData } from "../types/PolicyData";
-import type { ServicesData } from "../types/Services";
+import type { SocialMediaData } from "../../types/SocialMedia"
+import type { PolicyData } from "../../types/PolicyData";
+import type { ServicesData } from "../../types/Services";
 import { useStore } from "@nanostores/react";
-import { defaultLanguage } from "../services/LanguageStore";
-import type { MainData } from "../types/Main";
+import { defaultLanguage } from "../../services/LanguageStore";
+import type { MainData } from "../../types/Main";
 
 export type FooterProps = {
     socialMedia: SocialMediaData[]

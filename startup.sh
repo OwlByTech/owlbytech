@@ -10,7 +10,8 @@ yarn install
 
 if [ $ENV = "prod" ]; then
   echo "------------ PRODUCTION MODE ------------"
-  echo "Not implemented yet"
+  yarn build
+  HOST=0.0.0.0 PORT=4321 node ./dist/server/entry.mjs
 else
   echo "------------ DEVELOPMENT MODE ------------"
   npm run dev -- --host

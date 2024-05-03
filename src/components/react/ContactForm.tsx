@@ -1,13 +1,13 @@
 import { useStore } from "@nanostores/react";
-import { defaultLanguage } from "../services/LanguageStore";
-import TextInput from "./core/TextInput";
-import Submit from "./core/Submit";
-import TextArea from "./core/TextArea";
-import type { ContactFormFieldTranslation, FormFieldTranslation } from "../types/ContactFormFieldTranslation";
-import type { ContactFormField } from "../types/ContactFormField";
-import EmailInput from "./core/EmailInput";
-import FileInput from "./core/FileInput";
-import Checkbox from "./core/Checkbox";
+import { defaultLanguage } from "../../services/LanguageStore";
+import TextInput from "../core/TextInput";
+import Submit from "../core/Submit";
+import TextArea from "../core/TextArea";
+import type { ContactFormFieldTranslation, FormFieldTranslation } from "../../types/ContactFormFieldTranslation";
+import type { ContactFormField } from "../../types/ContactFormField";
+import EmailInput from "../core/EmailInput";
+import FileInput from "../core/FileInput";
+import Checkbox from "../core/Checkbox";
 
 export type ContactFormProps = {
     contactFormHome: any[];

@@ -8,17 +8,18 @@ import ServicesCard from "../components/astro/ServicesCard.astro";
 import ContactFormHome from "../components/astro/ContactFormHome.astro";
 import Footer from "../components/astro/Footer.astro";
 
+//@ts-ignore
 directusInitialization(process.env.DIRECTUS_URL, process.env.DIRECTUS_TOKEN);
 ---
 
 <Layout title={""}>
   <main>
-    <Navbar client:visible />
-    <Home client:visible />
-    <CardCase client:visible />
-    <ServicesCard client:visible />
-    <ContactFormHome client:visible />
-    <Footer client:visible /> 
+    <Navbar />
+    <Home />
+    <CardCase />
+    <ServicesCard />
+    <ContactFormHome />
+    <Footer />
   </main>
 
   <style>

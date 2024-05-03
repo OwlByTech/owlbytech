@@ -1,7 +1,7 @@
-import { defaultLanguage } from "../services/LanguageStore";
+import { defaultLanguage } from "../../services/LanguageStore";
 import { useStore } from "@nanostores/react";
 import Language from "./Language";
-import type { Navbar } from "../types/Navbar";
+import type { Navbar } from "../../types/Navbar";
 
 export type NavBarProps = {
     data: Navbar[];
