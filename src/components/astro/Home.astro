@@ -5,5 +5,5 @@ import { homeFetching } from "../../services/api";
 const homeData = await homeFetching();
 ---
 
-<Home data={homeData} client:only />
+<Home data={homeData} client:only="react" />
 

@@ -20,7 +20,6 @@ export default function Footer(props: FooterProps) {
     const filteredPolicy = props.policies.filter(data => data.languages_code === $defaultLanguage);
     const filteredServices = props.services.filter(data => data.languages_id === $defaultLanguage);
 
-    console.log(global)
     return (
         <main className="">
             <hr className="mb-5 border-b-1 border-black w-5/6 mx-auto" />
