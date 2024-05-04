@@ -11,7 +11,44 @@ const { title, favicon } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<!-- Primary Meta Tags -->
+		<title>{title}</title>
+		<meta
+			name="title"
+			content="OwlByTech - Desarrollo de Software | Soluciones Tecnológicas Innovadoras"
+		/>
+		<meta
+			name="description"
+			content="Ofrecemos servicios de desarrollo de software personalizado para empresas. Soluciones tecnológicas innovadoras para impulsar tu negocio. ¡Contáctanos hoy!"
+		/>
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://owlbytech.com/" />
+		<meta
+			property="og:title"
+			content="OwlByTech - Desarrollo de Software | Soluciones Tecnológicas Innovadoras"
+		/>
+		<meta
+			property="og:description"
+			content="Ofrecemos servicios de desarrollo de software personalizado para empresas. Soluciones tecnológicas innovadoras para impulsar tu negocio. ¡Contáctanos hoy!"
+		/>
+	
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="http://owlbytech.com/" />
+		<meta
+			property="twitter:title"
+			content="OwlByTech - Desarrollo de Software | Soluciones Tecnológicas Innovadoras"
+		/>
+		<meta
+			property="twitter:description"
+			content="Ofrecemos servicios de desarrollo de software personalizado para empresas. Soluciones tecnológicas innovadoras para impulsar tu negocio. ¡Contáctanos hoy!"
+		/>
+		<meta
+			property="twitter:image"
+			content={favicon}
+		/>
+
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href={favicon} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,7 +58,7 @@ const { title, favicon } = Astro.props;
 			rel="stylesheet"
 		/>
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		
 	</head>
 	<body>
 		<slot />
@@ -42,7 +79,7 @@ const { title, favicon } = Astro.props;
 	html {
 		font-family: Archivo, system-ui, sans-serif;
 		background: #ffffff;
-		background-image: url('/background-pattern.png');
+		background-image: url("/background-pattern.png");
 	}
 	code {
 		font-family:

@@ -14,6 +14,7 @@ import type { ContactFormHomeData } from "../types/ContactFormHome";
 import type { GlobalData } from "../types/Global";
 import type { MainData } from "../types/Main";
 import type { AboutUsFooter } from "../types/AboutUsFooter";
+import type { FooterTitles } from "../types/FooterTiltes";
 
 export function directusAssets(path: string) {
   return `${directus.url}assets/${path}`;
@@ -90,8 +91,14 @@ export async function globalFetching() {
 
 export async function aboutUsFooterFetching() {
   return await directus.request<AboutUsFooter[]>(
-    readSingleton("aboutus_footer_translations"),
+    readSingleton("aboutus_footer_translations")
   );
+}
+
+export async function footerTitlesFetching() {
+  return await directus.request<FooterTitles[]>(
+    readSingleton("footer_translations")
+  )
 }
 
 export async function WorkerFetching(): Promise<WorkerData[]> {
