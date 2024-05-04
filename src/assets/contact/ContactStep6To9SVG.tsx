@@ -169,7 +169,7 @@ export default function ContactStep6To9SVG(props: ContactStep6To9SVGProps) {
             fontWeight="300"
             letterSpacing="0em"
           >
-            <tspan x="647" y="629.016">
+            <tspan x="640" y="629.016">
               {props.phrase}
             </tspan>
           </text>
