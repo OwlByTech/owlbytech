@@ -4,7 +4,7 @@ export type ContactStep1To3SVGProps = {
   step3: string;
   mobile?: boolean;
 };
-export default function ContactStep1To3SVG(props: ContactStep1To3SVGProps) {
+export default function  ContactStep1To3SVG(props: ContactStep1To3SVGProps) {
   return (
     <>
       {props.mobile ? (
@@ -114,7 +114,7 @@ export default function ContactStep1To3SVG(props: ContactStep1To3SVGProps) {
             fontWeight="100"
             letterSpacing="0em"
           >
-            <tspan y="325">3. {props.step3}</tspan>
+            <tspan id="3" y="325">3. {props.step3}</tspan>
           </text>
         </svg>
       )}

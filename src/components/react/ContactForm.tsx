@@ -44,8 +44,7 @@ export default function ContactForm(props: ContactFormProps) {
     });
 
   return (
-    <div
-      id="3" 
+    <div 
       className={
         "flex flex-col sm:flex-row border border-text border-solid rounded-xl gap-14 p-4 md:p-24 text-text"
       }
