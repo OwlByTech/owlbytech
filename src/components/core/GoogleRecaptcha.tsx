@@ -13,17 +13,19 @@ export function GoogleRecaptcha(props: GoogleRecaptchaProps) {
         document.body.appendChild(script);
 
         const callbackVerify = (r) => {
+            // @ts-ignore
             props.verifyCallback(r)
         }
 
         const onloadCallback = () => {
             // reCAPTCHA script has loaded, render the widget
+            // @ts-ignore
             window.grecaptcha.render('recaptcha', {
                 sitekey: props.publicKey,
                 callback: callbackVerify
             });
         };
-
+        // @ts-ignore
         window.onloadCallback = onloadCallback;
 
         return () => {
