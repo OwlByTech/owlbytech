@@ -6,7 +6,8 @@ export interface ContactFormField {
     | "file-input"
     | "checkbox"
     | "submit"
-    | "text-area";
+    | "text-area"
+    | "recaptcha";
   required: boolean;
   enable: boolean;
   name: string;

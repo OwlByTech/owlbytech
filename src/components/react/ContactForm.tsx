@@ -11,15 +11,19 @@ import type { ContactFormField } from "../../types/ContactFormField";
 import EmailInput from "../core/EmailInput";
 import FileInput from "../core/FileInput";
 import Checkbox from "../core/Checkbox";
+import { useEffect, useState } from "react";
+import { GoogleRecaptcha } from "../core/GoogleRecaptcha";
 
 export type ContactFormProps = {
   contactFormHome: any[];
   contactFormTranslation: any[];
   contactFormFields: any[];
   contactForm: any[];
+  recaptchaKey: string;
 };
 
 export default function ContactForm(props: ContactFormProps) {
+  const [verified, setVerified] = useState<boolean>(false);
   const $defaultLanguage = useStore(defaultLanguage);
   const contactFormData = props.contactForm.filter(
     (data) => data.languages_code === $defaultLanguage,
@@ -44,7 +48,8 @@ export default function ContactForm(props: ContactFormProps) {
     });
 
   return (
-    <div 
+    <div
+      id="3"
       className={
         "flex flex-col sm:flex-row border border-text border-solid rounded-xl gap-14 p-4 md:p-24 text-text"
       }
@@ -75,8 +80,6 @@ export default function ContactForm(props: ContactFormProps) {
                   required={required}
                 />
               );
-            case "submit":
-              return <Submit key={index} value={label} />;
             case "text-area":
               return (
                 <TextArea
@@ -89,7 +92,7 @@ export default function ContactForm(props: ContactFormProps) {
             case "email-input":
               return (
                 <EmailInput
-                key={index}
+                  key={index}
                   name={name}
                   placeholder={placeholder}
                   required={required}
@@ -101,6 +104,12 @@ export default function ContactForm(props: ContactFormProps) {
               return (
                 <Checkbox key={index} name={name} value={placeholder} required={required} />
               );
+            case "recaptcha":
+              return <GoogleRecaptcha publicKey={props.recaptchaKey} verifyCallback={(token) => {
+                setVerified(true)
+              }} key={index}></GoogleRecaptcha>
+            case "submit":
+              return <Submit disabled={!verified} key={index} value={label} />;
           }
         })}
       </form>

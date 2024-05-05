@@ -25,12 +25,14 @@ const contactFormHome = await ContactFormHomeFetching();
 const contactForm = await ContactFormFetching();
 const contactFormFields = await ContactFormFieldFetching();
 const contactFormTranslation = await ContactFormFieldTranslationFetching();
----
 
+const recaptchaKey = process.env.GOOGLE_RECAPTCHA_PUBLIC_KEY;
+---
 <ContactForm
     contactFormHome={contactFormHome}
     contactFormTranslation={contactFormTranslation}
     contactFormFields={contactFormFields}
     contactForm={contactForm}
+    recaptchaKey={recaptchaKey}
     client:only="react"
 />
