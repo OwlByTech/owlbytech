@@ -12,6 +12,7 @@ export function GoogleRecaptcha(props: GoogleRecaptchaProps) {
         script.async = true;
         document.body.appendChild(script);
 
+        // @ts-ignore
         const callbackVerify = (r) => {
             // @ts-ignore
             props.verifyCallback(r)
