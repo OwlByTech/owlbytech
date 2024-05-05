@@ -35,6 +35,6 @@ export function GoogleRecaptcha(props: GoogleRecaptchaProps) {
     }, []);
 
     return (
-        <div id="recaptcha"></div>
+        <div id="recaptcha" className="w-full" style={{transform: "scale(0.87)", transformOrigin: "0 0"}}></div>
     );
 }
