@@ -19,6 +19,8 @@ export default function ServicesCard(props: ServicesCardProps) {
     (data) => data.languages_id === $defaultLanguage,
   );
 
+  const rootMargin = window.innerWidth < 780 ? '99%' : '-20% 0%';
+
   const [ref, springs] = useInView(
     () => ({
       from: {
@@ -31,9 +33,10 @@ export default function ServicesCard(props: ServicesCardProps) {
       },
     }),
     {
-      rootMargin: '-10% 10%',
-    }
-  )
+      rootMargin: rootMargin,
+    },
+  );
+
 
   return (
     <div
