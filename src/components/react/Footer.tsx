@@ -1,4 +1,3 @@
-import React from "react";
 import { useStore } from "@nanostores/react";
 import { defaultLanguage } from "../../services/LanguageStore";
 import type { SocialMediaData } from "../../types/SocialMedia";
@@ -6,6 +5,7 @@ import type { PolicyData } from "../../types/PolicyData";
 import type { ServicesData } from "../../types/Services";
 import type { MainData } from "../../types/Main";
 import type { AboutUsFooter } from "../../types/AboutUsFooter";
+import type { FooterTitles } from "../../types/FooterTiltes";
 
 export type FooterProps = {
   socialMedia: SocialMediaData[];
@@ -13,13 +13,13 @@ export type FooterProps = {
   services: ServicesData[];
   global: MainData;
   aboutUsFooter: AboutUsFooter[];
+  footerTitles: FooterTitles[];
 };
 
 export default function Footer(props: FooterProps) {
   const $defaultLanguage = useStore(defaultLanguage);
-  const { socialMedia, policies, services, global, aboutUsFooter } = props;
+  const { socialMedia, policies, services, global, aboutUsFooter, footerTitles } = props;
 
-  // Filtrando las políticas y servicios por el idioma predeterminado
   const filteredPolicy = policies.filter(
     (data) => data.languages_code === $defaultLanguage,
   );
@@ -29,6 +29,10 @@ export default function Footer(props: FooterProps) {
   const filteredAboutUs = aboutUsFooter.filter(
     (data) => data.languages_code === $defaultLanguage,
   );
+  const filteredTitles = footerTitles.filter(
+    (data) => data.languages_code === $defaultLanguage,
+  );
+  const titles = filteredTitles.map((data) => data.titles);
 
   return (
     <footer className="flex flex-col px-8 md:px-32 gap-5 justify-center items-center">
@@ -36,11 +40,11 @@ export default function Footer(props: FooterProps) {
       <div className="flex flex-col md:flex-wrap sm:flex-row w-full justify-between">
         <div className="flex flex-col text-center gap-4">
           <h3 className="text-text text-left text-lg font-semibold">
-            Redes Sociales
+            {titles[0][0]}
           </h3>
           <div>
-            {socialMedia.map((data) => (
-              <a href={data.link}>
+            {socialMedia.map((data, index) => (
+              <a key={index} href={data.link}>
                 <div className="flex space-x-2">
                   <img src={data.icon} alt="" className="h-5 w-5" />
                   <p className="text-text text-left">{data.name} </p>
@@ -51,11 +55,11 @@ export default function Footer(props: FooterProps) {
         </div>
         <div className="flex flex-col text-center gap-4">
           <h3 className="text-text text-left text-lg font-semibold">
-            Servicios
+            {titles[0][1]}
           </h3>
           <div>
-            {filteredServices.map((data) => (
-              <p className="text-text text-left" key={data.id}>
+            {filteredServices.map((data, index) => (
+              <p className="text-text text-left" key={index}>
                 {data.title}
               </p>
             ))}
@@ -64,21 +68,21 @@ export default function Footer(props: FooterProps) {
 
         <div className="flex flex-col text-center gap-4">
           <h3 className="text-text text-left text-lg font-semibold">
-            About Us
+            {titles[0][2]}
           </h3>
           <div>
-            {filteredAboutUs.map((data) => (
-              <p className="text-text text-left">{data.title}</p>
+            {filteredAboutUs.map((data, index) => (
+              <p key={index} className="text-text text-left">{data.title}</p>
             ))}
           </div>
         </div>
         <div className="flex flex-col text-center gap-4">
           <h3 className="text-text text-left text-lg font-semibold">
-            Políticas
+            {titles[0][3]}
           </h3>
           <div>
-            {filteredPolicy.map((item) => (
-              <p className="text-text text-left">{item.title}</p>
+            {filteredPolicy.map((item, index) => (
+              <p key={index} className="text-text text-left">{item.title}</p>
             ))}
           </div>
         </div>

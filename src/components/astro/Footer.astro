@@ -1,6 +1,5 @@
 ---
-import { directus } from "../../lib/directus";
-import { aboutUsFooterFetching, directusAssets } from "../../services/api";
+import { aboutUsFooterFetching, directusAssets, footerTitlesFetching } from "../../services/api";
 import { socialMediaFetching, policiesFetching, servicesFetching, globalFetching } from "../../services/api";
 //@ts-ignore
 import Footer from "../react/Footer";
@@ -31,6 +30,7 @@ globalData.logo = directusAssets(globalData.logo)
 
 const aboutUsFooter = await aboutUsFooterFetching()
 
+const footerTitles = await footerTitlesFetching()
 ---
 
-<Footer socialMedia={socialMedia} policies={policies} services={services} global={globalData} aboutUsFooter={aboutUsFooter} client:only="react"/>
+<Footer socialMedia={socialMedia} policies={policies} services={services} global={globalData} aboutUsFooter={aboutUsFooter} footerTitles={footerTitles} client:only="react"/>

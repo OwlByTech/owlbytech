@@ -19,7 +19,7 @@ export default function CardCase(props: CardCaseProps) {
   );
 
   return (
-    <div id="2" className="flex flex-col p-8 items-center md:p-32 gap-16">
+    <div id="1" className="flex flex-col p-8 items-center md:p-32 gap-16">
       <div>
         <h1 className="text-text font-bold text-4xl md:text-6xl">
           {item.case_title}

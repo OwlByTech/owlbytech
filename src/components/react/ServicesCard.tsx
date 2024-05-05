@@ -20,7 +20,7 @@ export default function ServicesCard(props: ServicesCardProps) {
 
   return (
     <div
-      id="1"
+      id="2"
       className="flex flex-col p-8 md:px-32 gap-10"
       style={{ minHeight: "400px", marginBottom: "300px" }}
     >

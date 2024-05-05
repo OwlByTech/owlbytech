@@ -39,7 +39,7 @@ export default function ContactFormHome(props: ContactFormHomeProps) {
   const isMobile = width < 399 ? true : false;
 
   return (
-    <div id="3" className="flex flex-col justify-center p-8 md:p-32">
+    <div className="flex flex-col justify-center p-8 md:p-32">
       {contactFormHomeData.map((data, index) => {
         return (
           <div key={index}>
