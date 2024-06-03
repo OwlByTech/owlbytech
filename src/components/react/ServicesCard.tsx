@@ -2,7 +2,8 @@ import { useStore } from "@nanostores/react";
 import { defaultLanguage } from "../../services/LanguageStore";
 import type { ServicesData } from "../../types/Services";
 import type { GlobalData } from "../../types/Global";
-import { useInView, animated } from '@react-spring/web'
+import { animated, useSpring } from '@react-spring/web'
+import { useInView } from 'react-intersection-observer';
 
 export type ServicesCardProps = {
   data: ServicesData[];
@@ -19,29 +20,10 @@ export default function ServicesCard(props: ServicesCardProps) {
     (data) => data.languages_id === $defaultLanguage,
   );
 
-  const rootMargin = window.innerWidth < 780 ? '99%' : '-20% 0%';
-
-  const [ref, springs] = useInView(
-    () => ({
-      from: {
-        opacity: 0,
-        x: 100,
-      },
-      to: {
-        opacity: 1,
-        x: 0,
-      },
-    }),
-    {
-      rootMargin: rootMargin,
-    },
-  );
-
-
   return (
     <div
       id="2"
-      className="flex flex-col p-8 md:px-32 gap-10"
+      className="flex flex-col p-8 gap-10"
       style={{ minHeight: "400px", marginBottom: "300px" }}
     >
       <div className="flex flex-col gap-2">
@@ -54,24 +36,32 @@ export default function ServicesCard(props: ServicesCardProps) {
       </div>
 
       <div className="flex flex-wrap justify-center lg:justify-between gap-8">
-        {filteredServices.map((data, index) => (
+        {filteredServices.map((data, index) => {
+          const [ref, inView] = useInView({
+            triggerOnce: false,
+            threshold: 0.1,
+          });
 
-          <animated.div ref={ref} style={springs}>
-            <div
-              key={data.id}
-              className="flex flex-col gap-4 px-11 py-11 w-full md:max-w-sm lg:max-w-lg rounded-xl overflow-hidden shadow-lg border border-gray-800"
-              style={{ transform: `translateY(${index * 50}px)` }}
-            >
-              <h1 className="text-text font-bold text-3xl md:text-5xl">
-                {data.title}
-              </h1>
-              <p className="text-text">{data.description}</p>
-            </div>
-          </animated.div>
-        ))}
+          const springs = useSpring({
+            opacity: inView ? 1 : 0,
+            x: inView ? 0 : 100,
+          });
+
+          return (
+            <animated.div key={data.id} ref={ref} style={springs}>
+              <div
+                className="flex flex-col gap-4 px-11 py-11 w-full md:max-w-sm lg:max-w-lg rounded-xl overflow-hidden shadow-lg border border-gray-800"
+                style={{ transform: `translateY(${index * 50}px)` }}
+              >
+                <h1 className="text-text font-bold text-3xl md:text-5xl">
+                  {data.title}
+                </h1>
+                <p className="text-text">{data.description}</p>
+              </div>
+            </animated.div>
+          );
+        })}
       </div>
     </div>
   );
 }
-
-
